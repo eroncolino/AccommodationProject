@@ -1,0 +1,406 @@
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem;
+}
+
+body{
+    font-family: "Rubik", sans-serif;
+}
+
+.main-container{
+    background-color: white;
+}
+
+.sidenav {
+    background-color: #1e83bc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.sidenav-container {
+    position: absolute;
+    padding-right: 40px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.sidenav-header {
+    width: 100%;
+    padding: 25px 0;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    right: 40px;
+}
+
+.navbar {
+    background-color: #d3d3d3cf;
+}
+
+.navbar a {
+    color: #1e83bc;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.active{
+    background-color: transparent;
+    font-weight: 900;
+}
+
+.main-menu {
+    margin: 10px 20px;
+}
+
+.navbar-nav > li > a{
+    line-height: 140%;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.logo {
+    height: 60px;
+}
+
+.main-image-container img {
+    width: 100%;
+    margin-top: -100px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+}
+
+.filters-parameter {
+    display: flex;
+    width: 50%;
+    margin-top: -43px;
+    background-color: white;
+    color: #1e83bc;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.city-filter, .price-filter, .type-filter {
+    width: 33.3333%;
+    max-width: 100%;
+    padding: 5px;
+    border: solid 1px #2a648487;
+    border-right-style: none;
+}
+
+.search-filter {
+    margin-top: -43px;
+}
+
+.search-filter button {
+    background-color: #1e83bc;
+    color: white;
+}
+
+.search-filter button:hover {
+    background-color: #176491;
+}
+.search-icon {
+    color: white;
+}
+
+.search-button {
+    padding: 3rem 8rem;
+    border: none;
+}
+
+.search-icon {
+    vertical-align: middle;
+}
+
+select {
+    margin-top: 5px;
+}
+
+.copyright {
+    background-color: #1e83bc;
+    color: white;
+    line-height: 55px;
+    text-align: center;
+}
+
+.card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.card-signin, .card-signup {
+    margin-top: 12rem;
+}
+
+.card-title {
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-size: 2rem;
+    color: white;
+}
+
+input, input + label {
+    cursor: auto;
+}
+
+.form-signin, .form-signup {
+    width: 100%;
+}
+
+.form-signin .btn, .form-signup .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-label-group input {
+    height: auto;
+    border-radius: 2rem;
+}
+
+.form-label-group>input,
+.form-label-group>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-label-group>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+    color: transparent;
+}
+
+.form-label-group input::placeholder {
+    color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (3 / 2));
+    padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+    padding-top: calc(var(--input-padding-y) / 3);
+    padding-bottom: calc(var(--input-padding-y) / 3);
+    font-size: 12px;
+    color: #777;
+}
+
+.signin-button, .signup-button {
+    background-color: #286090;
+    border: solid;
+}
+
+.signin-button:hover, .signup-button:hover {
+    background-color: #1e4262;
+    border: solid;
+}
+
+.signin-link, .signup-link {
+    color: white;
+    padding-left: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.signin-link > a, .signup-link > a{
+    color: #ffffff;
+}
+
+.signin-link > a:hover, .signup-link > a:hover {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+.form-signin .form-label-group, .form-signup .form-label-group {
+    margin-bottom: 2rem;
+}
+
+.form-signin .form-label-group:last-of-type, .form-signup .form-label-group:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.show-password {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.show-password input {
+    margin: 0 5px 0;
+}
+
+.signin-container {
+    visibility: visible;
+}
+
+.signup-container {
+    display: none;
+}
+
+#pswd_info {
+    display:none;
+    background: #ffffff none repeat scroll 0 0;
+    color: #286090;
+    left: -288px;
+    position: absolute;
+    top: 167px;
+    border-radius: 8px;
+    border: solid #286090;
+    z-index: 200;
+}
+
+#pswd_info h4{
+    background: white none repeat scroll 0 0;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0;
+    padding: 17px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#pswd_info ul {
+    list-style: outside none none;
+    padding: 0;
+}
+
+#pswd_info ul li {
+    padding: 5px 25px;
+}
+
+#confirm_pswd_info {
+    display:none;
+    background: #ffffff none repeat scroll 0 0;
+    color: #286090;
+    left: -245px;
+    position: absolute;
+    top: 333px;
+    border-radius: 8px;
+    border: solid #286090;
+    z-index: 200;
+}
+
+#confirm_pswd_info p{
+    background: white none repeat scroll 0 0;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0;
+    padding: 17px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px 15px;
+    margin: 5px;
+}
+
+.valid {
+    background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/vq43s2wib/valid.png") no-repeat scroll 2px 6px;
+    color: green;
+    line-height: 21px;
+    padding-left: 22px;
+}
+
+.invalid {
+    background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/olmaj1p8z/invalid.png") no-repeat scroll 2px 6px;
+    color: red;
+    line-height: 21px;
+    padding-left: 22px;
+}
+
+#pswd_info::before {
+    background: #ffffff none repeat scroll 0 0;
+    content: "";
+    height: 25px;
+    left: 245px;
+    margin-top: -12.5px;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 25px;
+}
+
+#confirm_pswd_info::before {
+    background: #ffffff none repeat scroll 0 0;
+    content: "";
+    height: 25px;
+    left: 205px;
+    margin-top: -12.5px;
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+    width: 25px;
+}
+
+.main-houses h3 {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 30px;
+    color: #1e83bc;
+}
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: right;
+    }
+}
+
+@media (min-width: 576px) {
+    .sidenav-container {
+        width: 350px;
+    }
+}
