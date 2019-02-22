@@ -1,7 +1,4 @@
 let isOpen = false;
-/*let signin_div = document.getElementsByClassName("signin-container")[0];
-let signup_div = document.getElementsByClassName("signup-container")[0];
-*/
 
 function move() {
     let sidenav = document.getElementsByClassName("sidenav")[0];
@@ -51,7 +48,7 @@ function move() {
 }
 
 function showPassword() {
-    var x = document.getElementById("input-password");
+    let x = document.getElementById("input-password");
     if (x.type === "password") {
         x.type = "text";
     } else {
@@ -60,44 +57,81 @@ function showPassword() {
 }
 
 function showSignIn() {
-    var signin_div = document.getElementsByClassName("signin-container")[0];
-    var signup_div = document.getElementsByClassName("signup-container")[0];
+    let signin_div = document.getElementsByClassName("signin-container")[0];
+    let signup_div = document.getElementsByClassName("signup-container")[0];
     signin_div.style.visibility = "visible";
     signin_div.style.display = "block";
     signup_div.style.display = "none";
 }
 
 function showSignUp() {
-    var signin_div = document.getElementsByClassName("signin-container")[0];
-    var signup_div = document.getElementsByClassName("signup-container")[0];
+    let signin_div = document.getElementsByClassName("signin-container")[0];
+    let signup_div = document.getElementsByClassName("signup-container")[0];
     signin_div.style.display = "none";
     signup_div.style.display = "block";
     signup_div.style.visibility = "visible";
 }
 
+function insertNewUser(){
+    let signupForm = document.forms["signup-form"];
+    let name = signupForm.name.value;
+    let surname = signupForm.surname.value;
+    let phone = signupForm.phone.value;
+    let email = signupForm.email.value;
+    let password = signupForm.password.value;
 
-/*function validatePassword(){
-    var password = document.getElementById("inputNewPassword");
-    var confirm_psssword = document.getElementById("confirmInputNewPassword");
+    $.ajax({
+        url: 'DBConnection.php',
+        data: {functionToCall: 'checkIfMailAlreadyExists', emailAddress: email},
+        type: 'POST',
+        success: function(mailExists) {
 
-    if ( password.value.length < 8 || !password.value.match(/[A-z]/) || !password.value.match(/\d/) || !password.value.match(/[^a-zA-Z0-9\-\/]/) ) {
-        password.setCustomValidity("Invalid password!");
-        return false;
-    } else {
-        password.setCustomValidity("");
+            if (0 == mailExists) {
+                $.ajax({
+                    url: 'DBConnection.php',
+                    data: {functionToCall: 'insertNewUserIntoDB',
+                        emailAddress: email, passwordValue: password, nameValue: name, surnameValue: surname, phoneValue: phone},
+                    type: 'POST',
+                    success: function(insertion) {
+                        if (1 == insertion){
+                            alert("Registration completed successfully!");
+                            return true;
 
-        if (password.value !== confirm_psssword.value) {
-            confirm_psssword.setCustomValidity("Password do not match!");
-            return false;
-        } else {
-            confirm_psssword.setCustomValidity('');
-            return true;
+                        } else {
+                            alert("Problem with the registration. Please try again.");
+                            return false;
+                        }
+                    }
+                });
+            }
+
+            if (1 == mailExists) {
+                alert('An account is already registered with this email. Please sign in or another email address.');
+                return false;
+            }
         }
-    }
+    });
 }
 
-var password = document.getElementById("inputNewPassword");
-var confirm_psssword = document.getElementById("confirmInputNewPassword");
+function retrieveUser(){
+    let signinForm = document.forms["signin-form"];
+    let mail = signinForm.signinMail.value;
+    let password = signinForm.signinPassword.value;
 
-password.onchange = validatePassword;
-confirm_psssword.onkeyup = validatePassword; */
+    $.ajax({
+        url: 'DBConnection.php',
+        data: {functionToCall: 'validSignIn', emailAddress: mail, passwordValue: password},
+        type: 'POST',
+        success: function(userExists) {
+            if (1 == userExists) {
+                alert('Welcome back!');
+                return true;
+            } else {
+                alert('User not found. Please check your credentials or sign up.');
+                return false;
+            }
+        }
+    });
+}
+
+/*passcode_input.setCustomValidity("Wrong. It's 'Ivy'."); Elena16!*/

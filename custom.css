@@ -136,13 +136,17 @@ select {
 }
 
 .card-title {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-weight: 300;
     font-size: 1.5rem;
 }
 
-.card-signin, .card-signup {
-    margin-top: 12rem;
+.card-signin {
+    margin-top: 15rem;
+}
+
+.card-signup {
+    margin-top: 6rem;
 }
 
 .card-title {
@@ -176,7 +180,7 @@ input, input + label {
 
 .form-label-group input {
     height: auto;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
 }
 
 .form-label-group>input,
@@ -257,7 +261,7 @@ input, input + label {
 }
 
 hr {
-    margin-bottom: 30px;
+    margin: 15px 0px;
 }
 
 .form-signin .form-label-group, .form-signup .form-label-group {

@@ -42,15 +42,15 @@
             <div class="signin-container card card-signin my-5">
                 <h5 class="card-title text-center">Sign In</h5>
                 <hr class="my-4">
-                <form class="form-signin">
+                <form name="signin-form" class="form-signin" action="userpage.php" onsubmit="return retrieveUser(this);">
                     <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required
+                        <input name="signinMail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required
                                autofocus>
                         <label for="inputEmail">Email address</label>
                     </div>
 
                     <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <input name="signinPassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                         <label for="inputPassword">Password</label>
                     </div>
 
@@ -71,15 +71,33 @@
             <div class="signup-container card card-signup my-5">
                 <h5 class="card-title text-center">Sign Up</h5>
                 <hr class="my-4">
-                <form class="form-signin" onsubmit="return validatePassword();">
+                <form name="signup-form" class="form-signin" action="userpage.php" onsubmit="return insertNewUser(this);">
                     <div class="form-label-group">
-                        <input type="email" id="inputNewEmail" class="form-control" placeholder="Email address" required
+                        <input name='name' type="text" id="inputName" class="form-control" placeholder="Name" required
+                               autofocus>
+                        <label for="inputName">Name</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input name='surname' type="text" id="inputSurname" class="form-control" placeholder="Surname" required
+                               autofocus>
+                        <label for="inputSurname">Surname</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input name='phone' type="tel" pattern="[0-9]{10}" id="inputPhone" class="form-control" placeholder="Phone" required
+                               autofocus>
+                        <label for="inputPhone">Phone</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input name='email' type="email" id="inputNewEmail" class="form-control" placeholder="Email address" required
                                autofocus>
                         <label for="inputNewEmail">Email address</label>
                     </div>
 
                     <div class="form-label-group">
-                        <input type="password" id="inputNewPassword" class="form-control" placeholder="Password"
+                        <input name='password' type="password" id="inputNewPassword" class="form-control" placeholder="Password"
                                required>
                         <label for="inputNewPassword">Password</label>
                     </div>
@@ -98,7 +116,8 @@
                         Already have an account?
                         <a href="" onclick="showSignIn(); return false;">Sign in!</a>
                     </div>
-                    <button id='signup_button' class="signup-button btn btn-lg btn-primary btn-block text-uppercase" type="submit" disabled>
+                    <button id='signup_button' class="signup-button btn btn-lg btn-primary btn-block text-uppercase"
+                            type="submit" disabled>
                         Sign up
                     </button>
                 </form>
@@ -204,16 +223,12 @@
                 $('#space').hasClass('valid') && $('#areMatching').hasClass('valid')) {
 
                 $('.signup-button').removeAttr('disabled');
-                alert("active");
             } else {
                 $('.signup-button').css('disabled', '');
             }
         }
     });
-
-
 </script>
-
 
 <div class="main-container">
 
