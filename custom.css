@@ -3,11 +3,11 @@
     --input-padding-y: .75rem;
 }
 
-body{
+body {
     font-family: "Rubik", sans-serif;
 }
 
-.main-container{
+.main-container {
     background-color: white;
 }
 
@@ -49,7 +49,7 @@ body{
     font-weight: 800;
 }
 
-.active{
+.active {
     background-color: transparent;
     font-weight: 900;
 }
@@ -58,7 +58,7 @@ body{
     margin: 10px 20px;
 }
 
-.navbar-nav > li > a{
+.navbar-nav > li > a {
     line-height: 140%;
 }
 
@@ -89,6 +89,7 @@ body{
     color: #1e83bc;
     line-height: 30px;
     font-size: 18px;
+    z-index: 10;
 }
 
 .city-filter, .price-filter, .type-filter {
@@ -111,6 +112,7 @@ body{
 .search-filter button:hover {
     background-color: #176491;
 }
+
 .search-icon {
     color: white;
 }
@@ -128,11 +130,14 @@ select {
     margin-top: 5px;
 }
 
-.copyright {
+.footer {
     background-color: #1e83bc;
     color: white;
     line-height: 55px;
     text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .card-title {
@@ -183,12 +188,12 @@ input, input + label {
     border-radius: 1.5rem;
 }
 
-.form-label-group>input,
-.form-label-group>label {
+.form-label-group > input,
+.form-label-group > label {
     padding: var(--input-padding-y) var(--input-padding-x);
 }
 
-.form-label-group>label {
+.form-label-group > label {
     position: absolute;
     top: 0;
     left: 0;
@@ -228,7 +233,7 @@ input, input + label {
     padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
-.form-label-group input:not(:placeholder-shown)~label {
+.form-label-group input:not(:placeholder-shown) ~ label {
     padding-top: calc(var(--input-padding-y) / 3);
     padding-bottom: calc(var(--input-padding-y) / 3);
     font-size: 12px;
@@ -251,7 +256,7 @@ input, input + label {
     margin-bottom: 1.5rem;
 }
 
-.signin-link > a, .signup-link > a{
+.signin-link > a, .signup-link > a {
     color: #ffffff;
 }
 
@@ -290,7 +295,7 @@ hr {
 }
 
 #pswd_info {
-    display:none;
+    display: none;
     background: #ffffff none repeat scroll 0 0;
     color: #286090;
     left: -288px;
@@ -301,7 +306,7 @@ hr {
     z-index: 200;
 }
 
-#pswd_info h4{
+#pswd_info h4 {
     background: white none repeat scroll 0 0;
     display: block;
     font-size: 14px;
@@ -322,7 +327,7 @@ hr {
 }
 
 #confirm_pswd_info {
-    display:none;
+    display: none;
     background: #ffffff none repeat scroll 0 0;
     color: #286090;
     left: -245px;
@@ -333,7 +338,7 @@ hr {
     z-index: 200;
 }
 
-#confirm_pswd_info p{
+#confirm_pswd_info p {
     background: white none repeat scroll 0 0;
     display: block;
     font-size: 14px;
@@ -392,9 +397,77 @@ hr {
 }
 
 
+/* Profile bar */
+.container {
+    margin-top: 0px !important;
+    width: 100%;
+    padding: 0px;
+}
 
+.profile-head {
+    width: 100%;
+    background-color: #286090;
+    float: left;
+    padding: 15px 40px;
+}
 
+.profile-head h5 {
+    width: 100%;
+    padding: 5px 5px 0px 5px;
+    text-align: justify;
+    font-weight: bold;
+    color: #fff;
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 
+.profile-head p {
+    width: 100%;
+    text-align: justify;
+    padding: 0px 5px 5px 5px;
+    color: #fff;
+    font-size: 17px;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.profile-head ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-head ul li {
+    display: block;
+    color: #ffffff;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.profile-head ul li:hover span {
+    color: rgb(0, 4, 51);
+}
+
+.profile-head ul li span {
+    color: #ffffff;
+    padding-right: 15px;
+}
+
+.profile-head ul li a {
+    color: #ffffff;
+}
+
+.profile-head h6 {
+    width: 100%;
+    text-align: center;
+    font-weight: 100;
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
 
 
 @media (min-width: 768px) {

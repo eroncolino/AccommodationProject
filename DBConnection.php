@@ -6,10 +6,12 @@
  * Time: 8:10 PM
  */
 
+include ('UserService.php');
+
 class DBConnection
 {
     //Hold the connection instance
-    private static $_instance, $_userid;
+    private static $_instance;
     private $_connection;
     private $_servername = "localhost";
     private $_username = "root";
@@ -40,23 +42,27 @@ class DBConnection
     }
 
     //Method clone is empty to prevent duplication of connection
-    private function __clone(){}
+    private function __clone()
+    {
+    }
 
     //Get mysqli connection
-    public function getConnection(){
+    public function getConnection()
+    {
         return $this->_connection;
     }
 
-    public function getAllProperties(){ //todo change properties with houses or vice versa
+    public function getAllProperties()
+    { //todo change properties with houses or vice versa
         $result = $this->_connection->query("SELECT * FROM properties ORDER BY date(insertionDate) DESC");
         return $result;
     }
 
-    public static function validSignIn($email, $password){
+    public static function validSignIn($email, $password)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
-        $valid = true;
-        $invalid = false;
+        $validLogin = false;
 
         $stmt = $conn->prepare('SELECT * FROM users WHERE email = ? AND password = ?');
         $stmt->bind_param('ss', $email, $password);
@@ -65,19 +71,26 @@ class DBConnection
         $result = $stmt->get_result();
         $row = $result->fetch_array();
 
-         if ($row){
-            self::$_userid = $row['userid'];
-            echo $valid;
+        if ($row) {
+            $userId = $row['userid'];
+            $name = $row['name'];
+            $surname = $row['surname'];
+            $phone = $row['phone'];
+            $email = $row['email'];
+            $password = $row['password'];
+            $user = new UserService($userId, $name, $surname, $phone, $email, $password);
+            $_SESSION['user'] = $user;   //calling $_SESSION['user'] returns the current user
+
+            $validLogin = true;
+            echo $validLogin;
+
         } else {
-            echo $invalid;
+            echo $validLogin;
         }
     }
 
-    public function getUserId(){
-        return self::$_userid;
-    }
-
-    public static function checkIfMailAlreadyExists($email) {
+    public static function checkIfMailAlreadyExists($email)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
         $emailExists = 1;
@@ -88,14 +101,15 @@ class DBConnection
         $stmt->execute();
         $result = $stmt->fetch();
 
-        if($result){
+        if ($result) {
             echo $emailExists;
         } else {
             echo $emailFree;
         }
     }
-//Elena16!
-    public static function insertNewUserIntoDB($email, $password, $name, $surname, $phone){
+
+    public static function insertNewUserIntoDB($email, $password, $name, $surname, $phone)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
@@ -103,32 +117,46 @@ class DBConnection
         $stmt->bind_param('sssss', $email, $password, $name, $surname, $phone);
         $result = $stmt->execute();
 
-        echo  $result;
+        if ($result) {
+            //Gets the id of the inserted user
+            $conn->query("SELECT LAST_INSERTED_ID()");
+            $userId = $conn->insert_id;
+            $user = new UserService($userId, $name, $surname, $phone, $email, $password);
+            $_SESSION['user'] = $user;   //calling $_SESSION['user'] returns the current user
+        }
+
+        echo $result;
     }
 }
 
-if(isset($_POST['functionToCall']) && !empty($_POST['functionToCall'])) {
+if (isset($_POST['functionToCall']) && !empty($_POST['functionToCall'])) {
     $functionToCall = $_POST['functionToCall'];
 
-    switch($functionToCall) {
+    switch ($functionToCall) {
 
         case 'checkIfMailAlreadyExists' :
             $email = $_POST['emailAddress'];
-            DBConnection::checkIfMailAlreadyExists($email);break;
+            DBConnection::checkIfMailAlreadyExists($email);
+            break;
         case 'insertNewUserIntoDB' :
             $name = $_POST['nameValue'];
             $surname = $_POST['surnameValue'];
             $phone = $_POST['phoneValue'];
             $email = $_POST['emailAddress'];
             $password = $_POST['passwordValue'];
-            DBConnection::insertNewUserIntoDB($email, $password, $name, $surname, $phone);break;
+            DBConnection::insertNewUserIntoDB($email, $password, $name, $surname, $phone);
+            break;
 
         case 'validSignIn' :
             $email = $_POST['emailAddress'];
             $password = $_POST['passwordValue'];
-            DBConnection::validSignIn($email, $password);break;
+            DBConnection::validSignIn($email, $password);
+            break;
 
         case 'other' : // do something;break;
             // other cases
     }
 }
+
+
+

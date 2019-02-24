@@ -29,6 +29,7 @@
 
 <body>
 
+<!-- Login and signup side nav -->
 <aside class="sidenav">
     <div class="sidenav-container">
         <header class="sidenav-header">
@@ -42,10 +43,9 @@
             <div class="signin-container card card-signin my-5">
                 <h5 class="card-title text-center">Sign In</h5>
                 <hr class="my-4">
-                <form name="signin-form" class="form-signin" action="userpage.php" onsubmit="return retrieveUser(this);">
+                <form name="signin-form" class="form-signin" onsubmit="retrieveUser()">
                     <div class="form-label-group">
-                        <input name="signinMail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required
-                               autofocus>
+                        <input name="signinMail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                         <label for="inputEmail">Email address</label>
                     </div>
 
@@ -73,26 +73,22 @@
                 <hr class="my-4">
                 <form name="signup-form" class="form-signin" action="userpage.php" onsubmit="return insertNewUser(this);">
                     <div class="form-label-group">
-                        <input name='name' type="text" id="inputName" class="form-control" placeholder="Name" required
-                               autofocus>
+                        <input name='name' type="text" id="inputName" class="form-control" placeholder="Name" required>
                         <label for="inputName">Name</label>
                     </div>
 
                     <div class="form-label-group">
-                        <input name='surname' type="text" id="inputSurname" class="form-control" placeholder="Surname" required
-                               autofocus>
+                        <input name='surname' type="text" id="inputSurname" class="form-control" placeholder="Surname" required>
                         <label for="inputSurname">Surname</label>
                     </div>
 
                     <div class="form-label-group">
-                        <input name='phone' type="tel" pattern="[0-9]{10}" id="inputPhone" class="form-control" placeholder="Phone" required
-                               autofocus>
+                        <input name='phone' type="tel" pattern="[0-9]{10}" id="inputPhone" class="form-control" placeholder="Phone" required>
                         <label for="inputPhone">Phone</label>
                     </div>
 
                     <div class="form-label-group">
-                        <input name='email' type="email" id="inputNewEmail" class="form-control" placeholder="Email address" required
-                               autofocus>
+                        <input name='email' type="email" id="inputNewEmail" class="form-control" placeholder="Email address" required>
                         <label for="inputNewEmail">Email address</label>
                     </div>
 
@@ -148,6 +144,7 @@
     </div>
 </aside>
 
+<!-- Validating password script-->
 <script>
     var pswd, confirmpswd;
 

@@ -6,7 +6,7 @@
  * Time: 6:00 PM
  */
 ?>
-    <div class="copyright">
+    <div class="footer">
         © 2018 Copyright: Elena Roncolino
     </div>
 </div>

@@ -4,7 +4,7 @@ function move() {
     let sidenav = document.getElementsByClassName("sidenav")[0];
     let main_container = document.getElementsByClassName("main-container")[0];
     let button = document.getElementsByClassName("hide-button")[0];
-    let footer = document.getElementsByClassName("copyright")[0];
+    let footer = document.getElementsByClassName("footer")[0];
     let navbar = document.getElementsByClassName("navbar")[0];
     let image = document.getElementById("main-slide");
 
@@ -87,12 +87,14 @@ function insertNewUser(){
         success: function(mailExists) {
 
             if (0 == mailExists) {
+                alert(mailExists);
                 $.ajax({
                     url: 'DBConnection.php',
                     data: {functionToCall: 'insertNewUserIntoDB',
                         emailAddress: email, passwordValue: password, nameValue: name, surnameValue: surname, phoneValue: phone},
                     type: 'POST',
                     success: function(insertion) {
+                        alert(insertion);
                         if (1 == insertion){
                             alert("Registration completed successfully!");
                             return true;
@@ -125,10 +127,9 @@ function retrieveUser(){
         success: function(userExists) {
             if (1 == userExists) {
                 alert('Welcome back!');
-                return true;
+                window.location.replace("userpage.php");
             } else {
                 alert('User not found. Please check your credentials or sign up.');
-                return false;
             }
         }
     });

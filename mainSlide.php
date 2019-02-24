@@ -16,7 +16,7 @@
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li><a href="submit.php">Submit</a></li>
-            <li><a href="" onclick="move(); return false;">Login</a></li>
+            <li><a id="login-button" href="" onclick="move(); return false;">Login</a></li>
         </ul>
     </div>
 </nav>
