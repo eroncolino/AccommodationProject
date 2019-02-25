@@ -43,7 +43,7 @@
             <div class="signin-container card card-signin my-5">
                 <h5 class="card-title text-center">Sign In</h5>
                 <hr class="my-4">
-                <form name="signin-form" class="form-signin" onsubmit="retrieveUser()">
+                <form name="signin-form" class="form-signin" action="userpage.php" onsubmit="let r = isLoginValid(retrieveUser); return !!r;">
                     <div class="form-label-group">
                         <input name="signinMail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                         <label for="inputEmail">Email address</label>
@@ -71,7 +71,7 @@
             <div class="signup-container card card-signup my-5">
                 <h5 class="card-title text-center">Sign Up</h5>
                 <hr class="my-4">
-                <form name="signup-form" class="form-signin" action="userpage.php" onsubmit="return insertNewUser(this);">
+                <form name="signup-form" class="form-signup" action="userpage.php" onsubmit="let r = isSuccessfulSignUp(insertNewUser); return !!r">
                     <div class="form-label-group">
                         <input name='name' type="text" id="inputName" class="form-control" placeholder="Name" required>
                         <label for="inputName">Name</label>

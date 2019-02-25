@@ -83,7 +83,6 @@ class DBConnection
 
             $validLogin = true;
             echo $validLogin;
-
         } else {
             echo $validLogin;
         }
@@ -93,8 +92,7 @@ class DBConnection
     {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
-        $emailExists = 1;
-        $emailFree = 0;
+        $availableMail = 0;
 
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param('s', $email);
@@ -102,9 +100,10 @@ class DBConnection
         $result = $stmt->fetch();
 
         if ($result) {
-            echo $emailExists;
+            echo $availableMail;
         } else {
-            echo $emailFree;
+            $availableMail = 1;
+            echo $availableMail;
         }
     }
 

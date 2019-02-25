@@ -26,9 +26,7 @@ function move() {
         button.style.visibility = "visible";
         button.style.opacity = "1";
         button.style.transition = "opacity 2s linear";
-    }
-
-    else {
+    } else {
         isOpen = false;
         main_container.style.height = "100%";
         main_container.style.borderRadius = "0";
@@ -72,67 +70,101 @@ function showSignUp() {
     signup_div.style.visibility = "visible";
 }
 
-function insertNewUser(){
+function ok(){
+    let emailAvailable = isEmailAvailable(checkAvailableEmail);
+
+    alert(emailAvailable); //returns undefined and don't know why
+
+    return !!emailAvailable;
+}
+function insertNewUser(result) {
+
+    if (ok()) {
+        if (result) {
+            alert("Registration completed successfully!");
+            return true;
+        } else {
+            alert("Problem with the registration. Please try again.");
+            return false;
+        }
+    }
+}
+
+function isSuccessfulSignUp(insertNewUser) {
+
     let signupForm = document.forms["signup-form"];
+    let email = signupForm.email.value;
+    let password = signupForm.password.value;
     let name = signupForm.name.value;
     let surname = signupForm.surname.value;
     let phone = signupForm.phone.value;
+
+    $.ajax({
+        url: 'DBConnection.php',
+        data: {
+            functionToCall: 'insertNewUserIntoDB',
+            emailAddress: email,
+            passwordValue: password,
+            nameValue: name,
+            surnameValue: surname,
+            phoneValue: phone
+        },
+        type: 'POST',
+        success: insertNewUser
+    });
+}
+
+//Function that wait for the asynchronous ajax existing mail request
+function checkAvailableEmail(available) {
+
+    if (available) {
+        return true;
+
+    } else {
+        alert('An account is already registered with this email. Please sign in or another email address.');
+        return false;
+    }
+}
+
+//Ajax request to database to check if email is available
+function isEmailAvailable(checkAvailableEmail) {
+    let signupForm = document.forms["signup-form"];
     let email = signupForm.email.value;
-    let password = signupForm.password.value;
 
     $.ajax({
         url: 'DBConnection.php',
         data: {functionToCall: 'checkIfMailAlreadyExists', emailAddress: email},
         type: 'POST',
-        success: function(mailExists) {
-
-            if (0 == mailExists) {
-                alert(mailExists);
-                $.ajax({
-                    url: 'DBConnection.php',
-                    data: {functionToCall: 'insertNewUserIntoDB',
-                        emailAddress: email, passwordValue: password, nameValue: name, surnameValue: surname, phoneValue: phone},
-                    type: 'POST',
-                    success: function(insertion) {
-                        alert(insertion);
-                        if (1 == insertion){
-                            alert("Registration completed successfully!");
-                            return true;
-
-                        } else {
-                            alert("Problem with the registration. Please try again.");
-                            return false;
-                        }
-                    }
-                });
-            }
-
-            if (1 == mailExists) {
-                alert('An account is already registered with this email. Please sign in or another email address.');
-                return false;
-            }
-        }
+        success: checkAvailableEmail
     });
 }
 
-function retrieveUser(){
+/* Begin login check */
+//Function that waits for the asynchronous ajax valid login request
+function retrieveUser(result) {
+
+    if (result) {
+        alert('Welcome back!');
+        return true;
+    } else {
+        alert('User not found. Please check your credentials or sign up.');
+        return false;
+    }
+}
+
+//Ajax request to database to check if the entered username and password correspond to an existing user
+function isLoginValid(retrieveUser) {
     let signinForm = document.forms["signin-form"];
-    let mail = signinForm.signinMail.value;
+    let email = signinForm.signinMail.value;
     let password = signinForm.signinPassword.value;
 
     $.ajax({
         url: 'DBConnection.php',
-        data: {functionToCall: 'validSignIn', emailAddress: mail, passwordValue: password},
+        data: {functionToCall: 'validSignIn', emailAddress: email, passwordValue: password},
         type: 'POST',
-        success: function(userExists) {
-            if (1 == userExists) {
-                alert('Welcome back!');
-                window.location.replace("userpage.php");
-            } else {
-                alert('User not found. Please check your credentials or sign up.');
-            }
-        }
+        success: retrieveUser
     });
 }
+/* End login check */
 
 /*passcode_input.setCustomValidity("Wrong. It's 'Ivy'."); Elena16!*/
