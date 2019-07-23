@@ -277,15 +277,6 @@ hr {
     margin-bottom: 1rem;
 }
 
-.show-password {
-    color: white;
-    margin-bottom: 1rem;
-}
-
-.show-password input {
-    margin: 0 5px 0;
-}
-
 .signin-container {
     visibility: visible;
 }
@@ -300,9 +291,9 @@ hr {
     color: #286090;
     left: -288px;
     position: absolute;
-    top: 167px;
+    top: 234px;
     border-radius: 8px;
-    border: solid #286090;
+    border: solid #1e83bc;
     z-index: 200;
 }
 
@@ -332,9 +323,9 @@ hr {
     color: #286090;
     left: -245px;
     position: absolute;
-    top: 333px;
+    top: 399px;
     border-radius: 8px;
-    border: solid #286090;
+    border: solid #1e83bc;
     z-index: 200;
 }
 
@@ -381,7 +372,7 @@ hr {
     background: #ffffff none repeat scroll 0 0;
     content: "";
     height: 25px;
-    left: 205px;
+    left: 204px;
     margin-top: -12.5px;
     position: absolute;
     top: 50%;

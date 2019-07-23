@@ -45,15 +45,6 @@ function move() {
     }
 }
 
-function showPassword() {
-    let x = document.getElementById("input-password");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
-
 function showSignIn() {
     let signin_div = document.getElementsByClassName("signin-container")[0];
     let signup_div = document.getElementsByClassName("signup-container")[0];
@@ -69,17 +60,10 @@ function showSignUp() {
     signup_div.style.display = "block";
     signup_div.style.visibility = "visible";
 }
-
-function ok(){
-    let emailAvailable = isEmailAvailable(checkAvailableEmail);
-
-    alert(emailAvailable); //returns undefined and don't know why
-
-    return !!emailAvailable;
-}
+//Elena123!
 function insertNewUser(result) {
 
-    if (ok()) {
+    if (isEmailAvailable(checkAvailableEmail)) {
         if (result) {
             alert("Registration completed successfully!");
             return true;
@@ -115,14 +99,13 @@ function isSuccessfulSignUp(insertNewUser) {
 }
 
 //Function that wait for the asynchronous ajax existing mail request
-function checkAvailableEmail(available) {
+function checkAvailableEmail(mailExists) {
 
-    if (available) {
-        return true;
-
-    } else {
+    if (mailExists == 1) {
         alert('An account is already registered with this email. Please sign in or another email address.');
         return false;
+    } else {
+        return true;
     }
 }
 

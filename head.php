@@ -43,7 +43,7 @@
             <div class="signin-container card card-signin my-5">
                 <h5 class="card-title text-center">Sign In</h5>
                 <hr class="my-4">
-                <form name="signin-form" class="form-signin" action="userpage.php" onsubmit="let r = isLoginValid(retrieveUser); return !!r;">
+                <form name="signin-form" class="form-signin" action="userpage.php" onsubmit="let r = isLoginValid(retrieveUser); return r;">
                     <div class="form-label-group">
                         <input name="signinMail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                         <label for="inputEmail">Email address</label>
@@ -52,10 +52,6 @@
                     <div class="form-label-group">
                         <input name="signinPassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                         <label for="inputPassword">Password</label>
-                    </div>
-
-                    <div class="show-password">
-                        <input type="checkbox" onclick="showPassword()">Show password
                     </div>
 
                     <div class="signup-link">
@@ -71,7 +67,7 @@
             <div class="signup-container card card-signup my-5">
                 <h5 class="card-title text-center">Sign Up</h5>
                 <hr class="my-4">
-                <form name="signup-form" class="form-signup" action="userpage.php" onsubmit="let r = isSuccessfulSignUp(insertNewUser); return !!r">
+                <form name="signup-form" class="form-signup" action="userpage.php" onsubmit="let r = isSuccessfulSignUp(insertNewUser); return r">
                     <div class="form-label-group">
                         <input name='name' type="text" id="inputName" class="form-control" placeholder="Name" required>
                         <label for="inputName">Name</label>
@@ -88,7 +84,7 @@
                     </div>
 
                     <div class="form-label-group">
-                        <input name='email' type="email" id="inputNewEmail" class="form-control" placeholder="Email address" required>
+                        <input name='email' type="email" id="inputNewEmail" class="form-control unavailable" placeholder="Email address" required>
                         <label for="inputNewEmail">Email address</label>
                     </div>
 
@@ -102,10 +98,6 @@
                         <input type="password" id="confirmInputNewPassword" class="form-control"
                                placeholder="Confirm password" required>
                         <label for="confirmInputNewPassword">Confirm password</label>
-                    </div>
-
-                    <div class="show-password">
-                        <input type="checkbox" onclick="showPassword()">Show password
                     </div>
 
                     <div class="signup-link">
@@ -139,7 +131,6 @@
                     <p id="areMatching" class="invalid">Passwords must match.</p>
                 </div>
             </div>
-
         </div>
     </div>
 </aside>
@@ -224,8 +215,10 @@
                 $('.signup-button').css('disabled', '');
             }
         }
-    });
+    })
 </script>
 
 <div class="main-container">
+
+
 

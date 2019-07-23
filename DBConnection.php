@@ -92,18 +92,18 @@ class DBConnection
     {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
-        $availableMail = 0;
+        $mailExists = 1;
 
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->fetch();
 
-        if ($result) {
-            echo $availableMail;
-        } else {
-            $availableMail = 1;
-            echo $availableMail;
+        if ($result) {  //If there are results it means that the email is already been taken
+            echo $mailExists;
+        } else {    //Mail does not already exist
+            $mailExists = 0;
+            echo $mailExists;
         }
     }
 
