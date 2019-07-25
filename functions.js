@@ -1,5 +1,14 @@
 let isOpen = false;
 
+//Function to log out
+function logOut() {
+    var r = confirm("Do you really want to log out?");
+    if (r) {
+        window.location.href = 'logout.php';
+    }
+}
+
+//Function to move the mail slide and show the log in panel
 function move() {
     let sidenav = document.getElementsByClassName("sidenav")[0];
     let main_container = document.getElementsByClassName("main-container")[0];
@@ -60,7 +69,7 @@ function showSignUp() {
     signup_div.style.display = "block";
     signup_div.style.visibility = "visible";
 }
-//Elena123!
+
 function insertNewUser(result) {
 
     if (isEmailAvailable(checkAvailableEmail)) {
@@ -124,14 +133,13 @@ function isEmailAvailable(checkAvailableEmail) {
 
 /* Begin login check */
 //Function that waits for the asynchronous ajax valid login request
-function retrieveUser(result) {
-
-    if (result) {
+function retrieveUser(valid) {
+    if (valid) {
         alert('Welcome back!');
-        return true;
+        window.location.href = 'userpage.php';
     } else {
         alert('User not found. Please check your credentials or sign up.');
-        return false;
+        window.location.href = "index.php";
     }
 }
 
@@ -149,5 +157,6 @@ function isLoginValid(retrieveUser) {
     });
 }
 /* End login check */
+
 
 /*passcode_input.setCustomValidity("Wrong. It's 'Ivy'."); Elena16!*/

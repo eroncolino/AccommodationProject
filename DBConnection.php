@@ -5,8 +5,15 @@
  * Date: 12/21/2018
  * Time: 8:10 PM
  */
+include('UserService.php');
 
-include ('UserService.php');
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['logged_in'])) {
+    $_SESSION['logged_in'] = false;
+}
 
 class DBConnection
 {
@@ -80,12 +87,16 @@ class DBConnection
             $password = $row['password'];
             $user = new UserService($userId, $name, $surname, $phone, $email, $password);
             $_SESSION['user'] = $user;   //calling $_SESSION['user'] returns the current user
-
+            $_SESSION['name'] = $user->getName();
+            $_SESSION['surname'] = $user->getSurname();
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['phone'] = $user->getPhone();
             $validLogin = true;
-            echo $validLogin;
-        } else {
-            echo $validLogin;
+            $_SESSION['logged_in'] = true;
         }
+        $_SESSION['logged_in'] = true;
+        $ok = $_SESSION['logged_in'];
+        echo $validLogin;
     }
 
     public static function checkIfMailAlreadyExists($email)
@@ -122,6 +133,10 @@ class DBConnection
             $userId = $conn->insert_id;
             $user = new UserService($userId, $name, $surname, $phone, $email, $password);
             $_SESSION['user'] = $user;   //calling $_SESSION['user'] returns the current user
+            $_SESSION['name'] = $user->getName();
+            $_SESSION['surname'] = $user->getSurname();
+            $_SESSION['email'] = $user->getEmail();
+            $_SESSION['phone'] = $user->getPhone();
         }
 
         echo $result;
@@ -156,6 +171,3 @@ if (isset($_POST['functionToCall']) && !empty($_POST['functionToCall'])) {
             // other cases
     }
 }
-
-
-

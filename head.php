@@ -5,7 +5,6 @@
  * Date: 12/23/2018
  * Time: 5:40 PM
  */
-
 ?>
 
 <html>
@@ -43,8 +42,8 @@
             <div class="signin-container card card-signin my-5">
                 <h5 class="card-title text-center">Sign In</h5>
                 <hr class="my-4">
-                <form name="signin-form" class="form-signin" action="userpage.php" onsubmit="let r = isLoginValid(retrieveUser); return r;">
-                    <div class="form-label-group">
+                <form name="signin-form" class="form-signin" action="" method="post" onsubmit="isLoginValid(retrieveUser); return false;">
+                        <div class="form-label-group">
                         <input name="signinMail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                         <label for="inputEmail">Email address</label>
                     </div>

@@ -13,10 +13,10 @@
         <div class="profile-head">
 
             <div class="col-md-5 col-sm-5 col-xs-12">
-                <h5>Jenifer Smith</h5>
+                <h5><?php echo $_SESSION['name'] . ' ' . $_SESSION['surname'] ?> </h5>
                 <ul>
-                    <li id="user-name-surname"><span class="glyphicon glyphicon-phone"></span></li>
-                    <li id="user-email"><span class="glyphicon glyphicon-envelope"></span> jenifer123@gmail.com</li>
+                    <li id="user-phone"><span class="glyphicon glyphicon-phone"></span><?php echo $_SESSION["phone"] ?></li>
+                    <li id="user-email"><span class="glyphicon glyphicon-envelope"></span><?php echo $_SESSION['email'] ?></li>
                     <li id="user-adverts"><span class="glyphicon glyphicon-pencil"></span> Open adverts: </li>
                 </ul>
             </div>
