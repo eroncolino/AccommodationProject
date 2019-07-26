@@ -18,6 +18,7 @@ if (!isset($_SESSION['logged_in'])) {
 require_once('head.php');
 require_once('mainSlide.php');
 require_once ('userDetails.php');
+require_once ("personalPosts.php");
 require_once ("footer.php");
 
 ?>

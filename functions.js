@@ -159,4 +159,96 @@ function isLoginValid(retrieveUser) {
 /* End login check */
 
 
-/*passcode_input.setCustomValidity("Wrong. It's 'Ivy'."); Elena16!*/
+$(document).ready( function() {
+
+    // Validating password script
+    var pswd, confirmpswd;
+
+    $(document).ready(function(){
+
+        $('#inputNewPassword').keyup(function() {
+            pswd = $(this).val();
+
+            //validate the length
+            if ( pswd.length < 8 ) {
+                $('#length').removeClass('valid').addClass('invalid');
+            } else {
+                $('#length').removeClass('invalid').addClass('valid');
+            }
+
+            //validate letter
+            if ( pswd.match(/[A-z]/) ) {
+                $('#letter').removeClass('invalid').addClass('valid');
+            } else {
+                $('#letter').removeClass('valid').addClass('invalid');
+            }
+
+            //validate capital letter
+            if ( pswd.match(/[A-Z]/) ) {
+                $('#capital').removeClass('invalid').addClass('valid');
+            } else {
+                $('#capital').removeClass('valid').addClass('invalid');
+            }
+
+            //validate number
+            if ( pswd.match(/\d/) ) {
+                $('#number').removeClass('invalid').addClass('valid');
+            } else {
+                $('#number').removeClass('valid').addClass('invalid');
+            }
+
+            //validate space
+            if ( pswd.match(/[^a-zA-Z0-9\-\/]/) ) {
+                $('#space').removeClass('invalid').addClass('valid');
+            } else {
+                $('#space').removeClass('valid').addClass('invalid');
+            }
+
+            changeSignupButtonVisibility();
+
+        }).focus(function() {
+            $('#pswd_info').show();
+        }).blur(function() {
+            $('#pswd_info').hide();
+        });
+
+        $('#confirmInputNewPassword').keyup(function() {
+            confirmpswd = $(this).val();
+
+            if (pswd.localeCompare(confirmpswd) !== 0) {
+                $('#areMatching').removeClass('valid').addClass('invalid');
+            } else {
+                $('#areMatching').removeClass('invalid').addClass('valid');
+            }
+
+            changeSignupButtonVisibility();
+
+        }).focus(function () {
+            $('#confirm_pswd_info').show();
+        }).blur(function () {
+            $('#confirm_pswd_info').hide();
+        });
+
+        function changeSignupButtonVisibility() {
+
+            if ($('#length').hasClass('valid') && $('#letter').hasClass('valid') &&
+                $('#capital').hasClass('valid') && $('#number').hasClass('valid') &&
+                $('#space').hasClass('valid') && $('#areMatching').hasClass('valid')) {
+
+                $('.signup-button').removeAttr('disabled');
+            } else {
+                $('.signup-button').css('disabled', '');
+            }
+        }
+    });
+    // Validating password script end
+
+    //Appends 'Show" to password fields
+    $('.pass_show').append('<span class="ptxt">Show</span>');
+});
+
+//Shows 'Show' and 'Hide' buttons on passwords fields
+$(document).on('click','.pass_show .ptxt', function(){
+    $(this).text($(this).text() == "Show" ? "Hide" : "Show");
+    $(this).prev().attr('type', function(index, attr){return attr == 'password' ? 'text' : 'password'; });
+});

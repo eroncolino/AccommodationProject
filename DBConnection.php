@@ -95,7 +95,6 @@ class DBConnection
             $_SESSION['logged_in'] = true;
         }
         $_SESSION['logged_in'] = true;
-        $ok = $_SESSION['logged_in'];
         echo $validLogin;
     }
 

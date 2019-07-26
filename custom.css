@@ -229,7 +229,7 @@ input, input + label {
 }
 
 .form-label-group input:not(:placeholder-shown) {
-    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (3 / 2));
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (7 / 4)/*(3 / 2)*/);
     padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
@@ -291,7 +291,7 @@ hr {
     color: #286090;
     left: -288px;
     position: absolute;
-    top: 234px;
+    top: 240px;
     border-radius: 8px;
     border: solid #1e83bc;
     z-index: 200;
@@ -321,9 +321,9 @@ hr {
     display: none;
     background: #ffffff none repeat scroll 0 0;
     color: #286090;
-    left: -245px;
+    left: -258px;
     position: absolute;
-    top: 399px;
+    top: 403px;
     border-radius: 8px;
     border: solid #1e83bc;
     z-index: 200;
@@ -360,7 +360,7 @@ hr {
     background: #ffffff none repeat scroll 0 0;
     content: "";
     height: 25px;
-    left: 245px;
+    left: 240px;
     margin-top: -12.5px;
     position: absolute;
     top: 50%;
@@ -372,7 +372,7 @@ hr {
     background: #ffffff none repeat scroll 0 0;
     content: "";
     height: 25px;
-    left: 204px;
+    left: 210px;
     margin-top: -12.5px;
     position: absolute;
     top: 50%;
@@ -400,11 +400,17 @@ hr {
     background-color: #286090;
     float: left;
     padding: 15px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-head div {
+    width: 85%;
 }
 
 .profile-head h5 {
     width: 100%;
-    padding: 5px 5px 0px 5px;
+    padding: 15px 5px 10px 5px;
     text-align: justify;
     font-weight: bold;
     color: #fff;
@@ -458,6 +464,49 @@ hr {
     font-size: 15px;
     text-transform: uppercase;
     margin-bottom: 0;
+}
+
+.pass_show {
+    position: relative;
+}
+
+.pass_show .ptxt {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    z-index: 1;
+    color: #1e83bc;;
+    margin-top: -10px;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.pass_show .ptxt:hover {
+    color: #f36c01;
+}
+
+.posts-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.posts-row .card {
+    width: 80%;
+}
+
+.posts-row .card-title {
+    margin-bottom: 20px;;
+}
+
+.posts-row .posts-subtitle {
+    width: 90%;
+    color: #1e4262;
+}
+
+.posts-row .add-new-button {
+    width: 10%;
 }
 
 

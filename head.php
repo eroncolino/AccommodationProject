@@ -20,8 +20,8 @@
     <link rel="stylesheet" type="text/css" href="custom.css">
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script type="text/javascript" src="functions.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
 
 
 </head>
@@ -45,12 +45,13 @@
                 <form name="signin-form" class="form-signin" action="" method="post" onsubmit="isLoginValid(retrieveUser); return false;">
                         <div class="form-label-group">
                         <input name="signinMail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                        <label for="inputEmail">Email address</label>
-                    </div>
+                            <label for="inputEmail">Email address</label>
+                        </div>
 
-                    <div class="form-label-group">
+                        <div class="form-label-group pass_show">
+                            <label for="inputPassword">Password</label>
                         <input name="signinPassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Password</label>
+
                     </div>
 
                     <div class="signup-link">
@@ -83,20 +84,20 @@
                     </div>
 
                     <div class="form-label-group">
-                        <input name='email' type="email" id="inputNewEmail" class="form-control unavailable" placeholder="Email address" required>
+                        <input name='email' type="email" id="inputNewEmail" class="form-control" placeholder="Email address" required>
                         <label for="inputNewEmail">Email address</label>
                     </div>
 
-                    <div class="form-label-group">
-                        <input name='password' type="password" id="inputNewPassword" class="form-control" placeholder="Password"
-                               required>
+                    <div class="form-label-group pass_show">
                         <label for="inputNewPassword">Password</label>
+                        <input name='password' type="password" id="inputNewPassword" class="form-control" placeholder="Password"required>
                     </div>
 
-                    <div class="form-label-group">
+                    <div class="form-label-group pass_show">
+                        <label for="confirmInputNewPassword">Confirm password</label>
                         <input type="password" id="confirmInputNewPassword" class="form-control"
                                placeholder="Confirm password" required>
-                        <label for="confirmInputNewPassword">Confirm password</label>
+
                     </div>
 
                     <div class="signup-link">
@@ -133,89 +134,6 @@
         </div>
     </div>
 </aside>
-
-<!-- Validating password script-->
-<script>
-    var pswd, confirmpswd;
-
-    $(document).ready(function(){
-
-        $('#inputNewPassword').keyup(function() {
-            pswd = $(this).val();
-
-            //validate the length
-            if ( pswd.length < 8 ) {
-                $('#length').removeClass('valid').addClass('invalid');
-            } else {
-                $('#length').removeClass('invalid').addClass('valid');
-            }
-
-            //validate letter
-            if ( pswd.match(/[A-z]/) ) {
-                $('#letter').removeClass('invalid').addClass('valid');
-            } else {
-                $('#letter').removeClass('valid').addClass('invalid');
-            }
-
-            //validate capital letter
-            if ( pswd.match(/[A-Z]/) ) {
-                $('#capital').removeClass('invalid').addClass('valid');
-            } else {
-                $('#capital').removeClass('valid').addClass('invalid');
-            }
-
-            //validate number
-            if ( pswd.match(/\d/) ) {
-                $('#number').removeClass('invalid').addClass('valid');
-            } else {
-                $('#number').removeClass('valid').addClass('invalid');
-            }
-
-            //validate space
-            if ( pswd.match(/[^a-zA-Z0-9\-\/]/) ) {
-                $('#space').removeClass('invalid').addClass('valid');
-            } else {
-                $('#space').removeClass('valid').addClass('invalid');
-            }
-
-            changeSignupButtonVisibility();
-
-        }).focus(function() {
-            $('#pswd_info').show();
-        }).blur(function() {
-            $('#pswd_info').hide();
-        });
-
-        $('#confirmInputNewPassword').keyup(function() {
-            confirmpswd = $(this).val();
-
-            if (pswd.localeCompare(confirmpswd) !== 0) {
-                $('#areMatching').removeClass('valid').addClass('invalid');
-            } else {
-                $('#areMatching').removeClass('invalid').addClass('valid');
-            }
-
-            changeSignupButtonVisibility();
-
-        }).focus(function () {
-            $('#confirm_pswd_info').show();
-        }).blur(function () {
-            $('#confirm_pswd_info').hide();
-        });
-
-        function changeSignupButtonVisibility() {
-
-            if ($('#length').hasClass('valid') && $('#letter').hasClass('valid') &&
-                $('#capital').hasClass('valid') && $('#number').hasClass('valid') &&
-                $('#space').hasClass('valid') && $('#areMatching').hasClass('valid')) {
-
-                $('.signup-button').removeAttr('disabled');
-            } else {
-                $('.signup-button').css('disabled', '');
-            }
-        }
-    })
-</script>
 
 <div class="main-container">
 
