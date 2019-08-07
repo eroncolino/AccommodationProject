@@ -5,6 +5,8 @@
  * Date: 2/23/2019
  * Time: 4:37 PM
  */
+
+include('DBConnection.php');
 ?>
 
 <section>
@@ -17,7 +19,7 @@
                 <ul>
                     <li id="user-phone"><span class="glyphicon glyphicon-phone"></span><?php echo $_SESSION["phone"] ?></li>
                     <li id="user-email"><span class="glyphicon glyphicon-envelope"></span><?php echo $_SESSION['email'] ?></li>
-                    <li id="user-adverts"><span class="glyphicon glyphicon-pencil"></span> Open adverts: </li>
+                    <li id="user-adverts"><span class="glyphicon glyphicon-pencil"></span> Open adverts: <?php DBConnection::getPropertiesNumberByUserId($_SESSION["userId"])?></li>
                 </ul>
             </div>
         </div>

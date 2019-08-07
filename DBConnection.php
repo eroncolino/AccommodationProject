@@ -60,9 +60,39 @@ class DBConnection
     }
 
     public function getAllProperties()
-    { //todo change properties with houses or vice versa
-        $result = $this->_connection->query("SELECT * FROM properties ORDER BY date(insertionDate) DESC");
+    {
+        $result = $this->_connection->query("SELECT * FROM properties ORDER BY dateinserted DESC");
         return $result;
+    }
+
+    public static function getPropertiesByUserId($userId)
+    {
+        $instance = DBConnection::getInstance();
+        $conn = $instance->getConnection();
+
+        $stmt = $conn->prepare('SELECT * FROM properties WHERE userid = ?');
+        $stmt->bind_param('i', $userId);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        echo $result;
+    }
+
+    public static function getPropertiesNumberByUserId($userId)
+    {
+        $instance = DBConnection::getInstance();
+        $conn = $instance->getConnection();
+
+        $stmt = $conn->prepare('SELECT COUNT(*) FROM properties WHERE userid = ?');
+        $stmt->bind_param('i', $userId);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_array();
+        $number = $row['COUNT(*)'];
+
+        return $number;
     }
 
     public static function validSignIn($email, $password)
@@ -87,6 +117,7 @@ class DBConnection
             $password = $row['password'];
             $user = new UserService($userId, $name, $surname, $phone, $email, $password);
             $_SESSION['user'] = $user;   //calling $_SESSION['user'] returns the current user
+            $_SESSION['userId'] = $user->getUserId();
             $_SESSION['name'] = $user->getName();
             $_SESSION['surname'] = $user->getSurname();
             $_SESSION['email'] = $user->getEmail();
@@ -132,6 +163,7 @@ class DBConnection
             $userId = $conn->insert_id;
             $user = new UserService($userId, $name, $surname, $phone, $email, $password);
             $_SESSION['user'] = $user;   //calling $_SESSION['user'] returns the current user
+            $_SESSION['userId'] = $user->getUserId();
             $_SESSION['name'] = $user->getName();
             $_SESSION['surname'] = $user->getSurname();
             $_SESSION['email'] = $user->getEmail();
@@ -151,6 +183,7 @@ if (isset($_POST['functionToCall']) && !empty($_POST['functionToCall'])) {
             $email = $_POST['emailAddress'];
             DBConnection::checkIfMailAlreadyExists($email);
             break;
+
         case 'insertNewUserIntoDB' :
             $name = $_POST['nameValue'];
             $surname = $_POST['surnameValue'];
@@ -170,3 +203,4 @@ if (isset($_POST['functionToCall']) && !empty($_POST['functionToCall'])) {
             // other cases
     }
 }
+

@@ -1,5 +1,20 @@
 let isOpen = false;
 
+//Function to show the pop up form to insert an announcement
+function openForm() {
+    document.getElementById("announcementForm").style.display = "block";
+}
+
+//Function to close the pop up form to insert an announcement
+function openForm() {
+    document.getElementById("announcementForm").style.display = "none";
+}
+
+//Function that saves the announcement to the database
+function insertAnnouncement() {
+    //todo
+}
+
 //Function to log out
 function logOut() {
     var r = confirm("Do you really want to log out?");

@@ -8,8 +8,8 @@ CREATE TABLE users (
 );
 
 
-CREATE TABLE houses (
-    houseid INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE properties (
+    propertyid INT AUTO_INCREMENT PRIMARY KEY,
     userid INT NOT NULL,
     title VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL,
@@ -20,6 +20,7 @@ CREATE TABLE houses (
     area INT NOT NULL,
     yearbuilt DATE NOT NULL,  
     dateinserted DATETIME NOT NULL,
+    dateupdated DATETIME,
     price DECIMAL(10,2) NOT NULL,
     FOREIGN KEY(userid) REFERENCES users(userid)
 );
