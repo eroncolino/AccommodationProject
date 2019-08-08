@@ -15,7 +15,7 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li><a href="submit.php">Submit</a></li>
+            <li><a href="submitAdvert.php">Submit</a></li>
             <?php if($_SESSION['logged_in'] === true) {
                 echo '<li><a id="login-button" href="" onclick="logOut(); return false;">Logout</a></li>';
             } else {
@@ -28,5 +28,3 @@
 <div class="main-image-container">
     <img id="main-slide" src="images/unibz_Bozen_Bolzano_Campus2.jpg" alt="main-slide">
 </div>
-
-<!-- Elena123! -->

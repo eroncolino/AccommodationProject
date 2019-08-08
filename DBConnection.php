@@ -79,6 +79,26 @@ class DBConnection
         echo $result;
     }
 
+    public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $date, $price) {
+        $instance = DBConnection::getInstance();
+        $conn = $instance->getConnection();
+
+        $stmt = $conn->prepare('INSERT INTO properties (userid, title, address, description, bedrooms, bathrooms, parking, area, yearbuilt, dateinserted, price) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
+        $stmt->bind_param("isssiiiiisd", $userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $date, $price);
+
+        $stmt->execute();
+        $result = $stmt->affected_rows;
+
+        if ($result) {
+            echo "<script type='text/javascript'>alert('Announcement inserted successfully.');</script>";
+
+        } else {
+            echo "<script type='text/javascript'>alert('Something went wrong. The announcement could not be saved.');</script>";
+        }
+
+        //todo refresh page
+    }
+
     public static function getPropertiesNumberByUserId($userId)
     {
         $instance = DBConnection::getInstance();

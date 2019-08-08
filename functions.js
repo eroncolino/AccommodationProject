@@ -6,7 +6,7 @@ function openForm() {
 }
 
 //Function to close the pop up form to insert an announcement
-function openForm() {
+function closeForm() {
     document.getElementById("announcementForm").style.display = "none";
 }
 

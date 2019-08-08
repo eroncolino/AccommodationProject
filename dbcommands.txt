@@ -18,9 +18,9 @@ CREATE TABLE properties (
     bathrooms INT NOT NULL,
     parking TINYINT(1) NOT NULL,
     area INT NOT NULL,
-    yearbuilt DATE NOT NULL,  
-    dateinserted DATETIME NOT NULL,
-    dateupdated DATETIME,
+    yearbuilt INT NOT NULL,
+    dateinserted DATE NOT NULL,
+    dateupdated DATE,
     price DECIMAL(10,2) NOT NULL,
     FOREIGN KEY(userid) REFERENCES users(userid)
 );

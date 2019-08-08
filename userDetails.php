@@ -19,10 +19,12 @@ include('DBConnection.php');
                 <ul>
                     <li id="user-phone"><span class="glyphicon glyphicon-phone"></span><?php echo $_SESSION["phone"] ?></li>
                     <li id="user-email"><span class="glyphicon glyphicon-envelope"></span><?php echo $_SESSION['email'] ?></li>
-                    <li id="user-adverts"><span class="glyphicon glyphicon-pencil"></span> Open adverts: <?php DBConnection::getPropertiesNumberByUserId($_SESSION["userId"])?></li>
+                    <li id="user-adverts"><span class="glyphicon glyphicon-pencil"></span> Open adverts:
+                        <?php $adverts = DBConnection::getPropertiesNumberByUserId($_SESSION["userId"]); echo $adverts;?></li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
+s

@@ -43,7 +43,7 @@ body {
 }
 
 .navbar a {
-    color: #1e83bc;
+    color: #0079be;
     height: 60px;
     font-size: 18px;
     font-weight: 800;
@@ -86,7 +86,7 @@ body {
     width: 50%;
     margin-top: -43px;
     background-color: white;
-    color: #1e83bc;
+    color: #0079be;
     line-height: 30px;
     font-size: 18px;
     z-index: 10;
@@ -105,7 +105,7 @@ body {
 }
 
 .search-filter button {
-    background-color: #1e83bc;
+    background-color: #0079be;
     color: white;
 }
 
@@ -131,7 +131,7 @@ select {
 }
 
 .footer {
-    background-color: #1e83bc;
+    background-color: #0079be;
     color: white;
     line-height: 55px;
     text-align: center;
@@ -241,7 +241,7 @@ input, input + label {
 }
 
 .signin-button, .signup-button {
-    background-color: #286090;
+    background-color: #0079be;
     border: solid;
 }
 
@@ -288,12 +288,12 @@ hr {
 #pswd_info {
     display: none;
     background: #ffffff none repeat scroll 0 0;
-    color: #286090;
+    color: #0079be;
     left: -288px;
     position: absolute;
     top: 240px;
     border-radius: 8px;
-    border: solid #1e83bc;
+    border: solid #0079be;
     z-index: 200;
 }
 
@@ -320,12 +320,12 @@ hr {
 #confirm_pswd_info {
     display: none;
     background: #ffffff none repeat scroll 0 0;
-    color: #286090;
+    color: #0079be;
     left: -258px;
     position: absolute;
     top: 403px;
     border-radius: 8px;
-    border: solid #1e83bc;
+    border: solid #0079be;
     z-index: 200;
 }
 
@@ -384,7 +384,7 @@ hr {
     text-align: center;
     margin-top: 4rem;
     font-size: 30px;
-    color: #1e83bc;
+    color: #0079be;
 }
 
 
@@ -397,7 +397,7 @@ hr {
 
 .profile-head {
     width: 100%;
-    background-color: #286090;
+    background-color: #0079be;
     float: left;
     padding: 15px 40px;
     display: flex;
@@ -475,7 +475,7 @@ hr {
     top: 50%;
     right: 15px;
     z-index: 1;
-    color: #1e83bc;;
+    color: #1e83bc;
     margin-top: -10px;
     cursor: pointer;
     transition: .3s ease all;
@@ -528,10 +528,69 @@ hr {
 .create-advert {
     display: flex;
     justify-content: center;
+    margin: auto;
+    width: 30%;
 }
 
 .submit-advert-button {
-    width: 30%;
+    color: #0079be;
+    background-color: #fff;
+    border: #2e6da4 3px solid;
+}
+
+#announcementForm {
+    display: none;
+    position: fixed;
+    top: 10%;
+    right: 20%;
+    padding: 10px;
+    border: 4px solid #1e83bc;
+    z-index: 10;
+    background-color: white;
+    width: 55%;
+}
+
+#announcementForm h1 {
+    text-align: center;
+    color: #1e83bc;
+    margin-bottom: 25px;
+}
+
+#announcementForm .form-container div{
+    margin: 10px;
+}
+
+.facilities {
+    display: flex;
+    justify-content: start;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-row button {
+    margin: 20px;
+    width: 15%;
+    padding: 7px 15px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+}
+
+label[for=title], label[for=address] {
+    width: 20%;
+}
+
+label[for=bedrooms], label[for=bathrooms], label[for=parking] {
+    margin: 0 20px;
+}
+
+label[for=description] {
+    margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
@@ -543,5 +602,37 @@ hr {
 @media (min-width: 576px) {
     .sidenav-container {
         width: 350px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .create-advert {
+        width: 50%;
+    }
+}
+
+@media (max-width: 770px) {
+    .create-advert {
+        width: 90%;
+    }
+}
+
+@media (max-width: 550px) {
+    .no-properties .row  {
+        width: 80%;
+    }
+
+    .create-advert {
+        width: 70%;
+    }
+}
+
+@media (max-width: 390px) {
+    .profile-head {
+        padding: 15px 20px;
+    }
+
+    .profile-head div  {
+        width: 100%;
     }
 }
