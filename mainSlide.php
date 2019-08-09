@@ -5,6 +5,7 @@
  * Date: 12/26/2018
  * Time: 5:02 PM
  */
+
 ?>
 
 <nav class="navbar navbar-static-top navbar-light">
@@ -15,8 +16,15 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li><a href="submitAdvert.php">Submit</a></li>
-            <?php if($_SESSION['logged_in'] === true) {
+            <li><a
+                    <?php
+                        if($_SESSION['logged_in'] == true) {
+                            echo 'href="userpage.php"';
+                        }
+                        else {
+                            echo //todo;
+                        }?> >Profile</a></li>
+            <?php if($_SESSION['logged_in'] == true) {
                 echo '<li><a id="login-button" href="" onclick="logOut(); return false;">Logout</a></li>';
             } else {
                 echo '<li><a id="logout-button" href="" onclick="move(); return false;">Login</a></li>';

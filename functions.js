@@ -10,11 +10,6 @@ function closeForm() {
     document.getElementById("announcementForm").style.display = "none";
 }
 
-//Function that saves the announcement to the database
-function insertAnnouncement() {
-    //todo
-}
-
 //Function to log out
 function logOut() {
     var r = confirm("Do you really want to log out?");

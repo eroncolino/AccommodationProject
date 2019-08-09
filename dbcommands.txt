@@ -20,7 +20,7 @@ CREATE TABLE properties (
     area INT NOT NULL,
     yearbuilt INT NOT NULL,
     dateinserted DATE NOT NULL,
-    dateupdated DATE,
+    updatedate DATE NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     FOREIGN KEY(userid) REFERENCES users(userid)
 );

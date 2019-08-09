@@ -593,6 +593,10 @@ label[for=description] {
     margin-bottom: 10px;
 }
 
+.announcements-row h4{
+    font-size: 30px;
+}
+
 @media (min-width: 768px) {
     .navbar-nav {
         float: right;

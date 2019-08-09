@@ -26,5 +26,3 @@ include('DBConnection.php');
         </div>
     </div>
 </section>
-
-s

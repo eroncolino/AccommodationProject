@@ -21,7 +21,7 @@ require_once ('userDetails.php');
 require_once ("personalPosts.php");
 require_once ("footer.php");
 
-
+//Submit announcement
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $address = $_POST['address'];
@@ -36,11 +36,12 @@ if (isset($_POST['submit'])) {
     $userId = $_SESSION['userId'];
 
     date_default_timezone_set('Europe/Rome');
-    $date = date('m/d/Y', time());
+    $date = date('Y-m-d H:i:s', time());
+    $updateDate = date('Y-m-d H:i:s', strtotime("$date +30 days"));
 
-    DBConnection::insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $date, $price);
+    DBConnection::insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $date, $updateDate, $price);
+    echo "<script type='text/javascript'>window.location.href = 'userpage.php';</script>";
 }
-
 ?>
 
 

@@ -5,7 +5,9 @@
  * Date: 12/21/2018
  * Time: 8:10 PM
  */
+
 include('UserService.php');
+include('Property.php');
 
 if (!isset($_SESSION)) {
     session_start();
@@ -76,15 +78,28 @@ class DBConnection
         $stmt->execute();
         $result = $stmt->get_result();
 
-        echo $result;
+        $propertiesArray = array();
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_array()) {
+                $property = new Property($row['propertyid'], $row['userid'], $row['title'], $row['address'],
+                    $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
+                    $row['yearbuilt'], $row['dateinserted'], $row['updatedate'], $row['price']);
+
+                $propertiesArray[] = $property;
+            }
+        }
+
+        return $propertiesArray;
     }
 
-    public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $date, $price) {
+    public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $dateInserted, $updateDate, $price) {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
-        $stmt = $conn->prepare('INSERT INTO properties (userid, title, address, description, bedrooms, bathrooms, parking, area, yearbuilt, dateinserted, price) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
-        $stmt->bind_param("isssiiiiisd", $userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $date, $price);
+        $stmt = $conn->prepare('INSERT INTO properties (userid, title, address, description, bedrooms, bathrooms, parking, area, yearbuilt, dateinserted, updatedate, price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)');
+        $stmt->bind_param("isssiiiiissd", $userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $dateInserted, $updateDate, $price);
 
         $stmt->execute();
         $result = $stmt->affected_rows;
@@ -95,8 +110,6 @@ class DBConnection
         } else {
             echo "<script type='text/javascript'>alert('Something went wrong. The announcement could not be saved.');</script>";
         }
-
-        //todo refresh page
     }
 
     public static function getPropertiesNumberByUserId($userId)

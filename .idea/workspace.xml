@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87758b13-b621-4a17-aa8d-58d091abf158" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Property.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/UserService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbcommands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbcommands.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainSlide.php" beforeDir="false" afterPath="$PROJECT_DIR$/mainSlide.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personalPosts.php" beforeDir="false" afterPath="$PROJECT_DIR$/personalPosts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/submit.php" beforeDir="false" afterPath="$PROJECT_DIR$/submitAdvert.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/userDetails.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/userpage.php" afterDir="false" />
     </list>
@@ -59,17 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="563" column="18" lean-forward="true" selection-start-line="563" selection-start-column="18" selection-end-line="563" selection-end-column="18" />
+            <state relative-caret-position="85">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -77,26 +71,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/userpage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+            <state relative-caret-position="-158">
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mainSlide.php">
+        <entry file="file://$PROJECT_DIR$/userDetails.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="425">
+              <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+              <folding>
+                <element signature="e#6#107#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/head.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="46" column="93" selection-start-line="46" selection-start-column="87" selection-end-line="46" selection-end-column="93" />
+              <folding>
+                <element signature="e#6#109#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBConnection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="98" column="27" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
+            <state relative-caret-position="260">
+              <caret line="110" column="126" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="126" />
               <folding>
                 <element signature="n#getPropertiesNumberByUserId#0;n#DBConnection#0;n#!!top" />
                 <element signature="n#validSignIn#0;n#DBConnection#0;n#!!top" />
@@ -106,44 +115,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mainSlide.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="764">
-              <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
-              <folding>
-                <element signature="n#!!block;n#logOut#0" />
-                <element signature="n#!!block;n#move#0" />
-                <element signature="n#!!block;n#showSignIn#0" />
-                <element signature="n#!!block;n#showSignUp#0" />
-                <element signature="n#!!block;n#insertNewUser#0" />
-                <element signature="n#!!block;n#isSuccessfulSignUp#0" />
-                <element signature="n#!!block;n#checkAvailableEmail#0" />
-                <element signature="n#!!block;n#isEmailAvailable#0" />
-                <element signature="n#!!block;n#retrieveUser#0" />
-                <element signature="n#!!block;n#isLoginValid#0" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="24" column="138" selection-start-line="24" selection-start-column="138" selection-end-line="24" selection-end-column="138" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dbcommands.txt">
+        <entry file="file://$PROJECT_DIR$/body.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/personalPosts.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="97" column="47" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="47" />
-              <folding>
-                <element signature="e#6#109#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -152,17 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>show-pa</find>
-      <find>validsi</find>
-      <find>retrieve</find>
-      <find>sessi</find>
-      <find>session</find>
-      <find>sess</find>
-      <find>login-button</find>
-      <find>login</find>
-      <find>move</find>
-      <find>validSignIn</find>
-      <find>windo</find>
       <find>logout</find>
       <find>wind</find>
       <find>password</find>
@@ -182,6 +156,17 @@
       <find>colo</find>
       <find>submi</find>
       <find>patter</find>
+      <find>insert</find>
+      <find>retur</find>
+      <find>Property</find>
+      <find>location</find>
+      <find>row</find>
+      <find>lo</find>
+      <find>login</find>
+      <find>aler</find>
+      <find>add new</find>
+      <find>submit</find>
+      <find>alert</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -203,19 +188,20 @@
         <option value="$PROJECT_DIR$/createaccount.php" />
         <option value="$PROJECT_DIR$/completeprofile.php" />
         <option value="$PROJECT_DIR$/body.php" />
+        <option value="$PROJECT_DIR$/submitAdvert.php" />
+        <option value="$PROJECT_DIR$/head.php" />
+        <option value="$PROJECT_DIR$/userDetails.php" />
+        <option value="$PROJECT_DIR$/custom.css" />
+        <option value="$PROJECT_DIR$/dbcommands.txt" />
+        <option value="$PROJECT_DIR$/DBConnection.php" />
+        <option value="$PROJECT_DIR$/Property.php" />
+        <option value="$PROJECT_DIR$/personalPosts.php" />
+        <option value="$PROJECT_DIR$/functions.js" />
+        <option value="$PROJECT_DIR$/userpage.php" />
+        <option value="$PROJECT_DIR$/logout.php" />
         <option value="$PROJECT_DIR$/UserService.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/logout.php" />
-        <option value="$PROJECT_DIR$/head.php" />
-        <option value="$PROJECT_DIR$/functions.js" />
-        <option value="$PROJECT_DIR$/custom.css" />
         <option value="$PROJECT_DIR$/mainSlide.php" />
-        <option value="$PROJECT_DIR$/userDetails.php" />
-        <option value="$PROJECT_DIR$/submitAdvert.php" />
-        <option value="$PROJECT_DIR$/personalPosts.php" />
-        <option value="$PROJECT_DIR$/dbcommands.txt" />
-        <option value="$PROJECT_DIR$/userpage.php" />
-        <option value="$PROJECT_DIR$/DBConnection.php" />
       </list>
     </option>
   </component>
@@ -233,10 +219,11 @@
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="C:\xampp\htdocs\Accommodation" selected_validation_type="LOCAL" web_path_to_validation_script="localhost/Accommodation" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1927" />
-    <option name="width" value="1157" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="100" />
+    <option name="y" value="-20" />
+    <option name="width" value="1447" />
+    <option name="height" value="1103" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -346,7 +333,8 @@
       <workItem from="1564073591096" duration="6227000" />
       <workItem from="1564142840880" duration="9873000" />
       <workItem from="1565190286584" duration="6507000" />
-      <workItem from="1565200755238" duration="26605000" />
+      <workItem from="1565200755238" duration="26680000" />
+      <workItem from="1565364269674" duration="16460000" />
     </task>
     <task id="LOCAL-00001" summary="login and submit working">
       <created>1550862140429</created>
@@ -397,23 +385,30 @@
       <option name="project" value="LOCAL" />
       <updated>1565216510134</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refresh page and connect add new button">
+      <created>1565301729216</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1565301729217</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305359000" />
+    <option name="totallyTimeSpent" value="321894000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1927" y="0" width="1157" height="1047" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988662" weight="0.18322699" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988662" visible="true" weight="0.16845638" />
       <window_info id="Structure" order="1" sideWeight="0.5011338" side_tool="true" weight="0.1590604" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32822758" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" visible="true" weight="0.42888403" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.38101983" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -428,6 +423,28 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.24697986" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988662" visible="true" weight="0.16845638" />
+      <window_info id="Structure" order="1" sideWeight="0.5011338" side_tool="true" weight="0.1590604" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32822758" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.42888403" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.5028329" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.24697986" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -440,7 +457,29 @@
     <MESSAGE value="login and logout working" />
     <MESSAGE value="POSTS TABLE" />
     <MESSAGE value="to be finished submit announcement" />
-    <option name="LAST_COMMIT_MESSAGE" value="to be finished submit announcement" />
+    <MESSAGE value="refresh page and connect add new button" />
+    <option name="LAST_COMMIT_MESSAGE" value="refresh page and connect add new button" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mainSlide.php</url>
+          <line>19</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mainSlide.php</url>
+          <line>20</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/mainSlide.php</url>
+          <line>21</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a688fb58-aa26-4d83-b023-a70792891597/console.sql">
@@ -471,13 +510,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/completeprofile.php" />
-    <entry file="file://$PROJECT_DIR$/body.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../phpMyAdmin/error_report.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -570,10 +602,56 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/createaccount.php" />
-    <entry file="file://$PROJECT_DIR$/logout.php">
+    <entry file="file://$PROJECT_DIR$/prova.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="374">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/submitAdvert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="596" column="20" selection-start-line="596" selection-start-column="20" selection-end-line="596" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Property.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="70" column="33" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#move#0" />
+            <element signature="n#!!block;n#showSignIn#0" />
+            <element signature="n#!!block;n#showSignUp#0" />
+            <element signature="n#!!block;n#insertNewUser#0" />
+            <element signature="n#!!block;n#isSuccessfulSignUp#0" />
+            <element signature="n#!!block;n#checkAvailableEmail#0" />
+            <element signature="n#!!block;n#isEmailAvailable#0" />
+            <element signature="n#!!block;n#retrieveUser#0" />
+            <element signature="n#!!block;n#isLoginValid#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbcommands.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -589,118 +667,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UserService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="85">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/custom.css">
+    <entry file="file://$PROJECT_DIR$/logout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="563" column="18" lean-forward="true" selection-start-line="563" selection-start-column="18" selection-end-line="563" selection-end-column="18" />
+        <state relative-caret-position="51">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/head.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="82" column="65" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="73" />
+        <state relative-caret-position="85">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personalPosts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="74" column="65" lean-forward="true" selection-start-line="74" selection-start-column="65" selection-end-line="74" selection-end-column="65" />
           <folding>
             <element signature="e#6#109#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/body.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/userDetails.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="119" selection-start-line="22" selection-start-column="119" selection-end-line="22" selection-end-column="119" />
+        <state relative-caret-position="425">
+          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
             <element signature="e#6#107#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prova.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/submitAdvert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainSlide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userpage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+        <state relative-caret-position="-158">
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personalPosts.php">
+    <entry file="file://$PROJECT_DIR$/head.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="97" column="47" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="47" />
+        <state relative-caret-position="782">
+          <caret line="46" column="93" selection-start-line="46" selection-start-column="87" selection-end-line="46" selection-end-column="93" />
           <folding>
             <element signature="e#6#109#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbcommands.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="764">
-          <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
-          <folding>
-            <element signature="n#!!block;n#logOut#0" />
-            <element signature="n#!!block;n#move#0" />
-            <element signature="n#!!block;n#showSignIn#0" />
-            <element signature="n#!!block;n#showSignUp#0" />
-            <element signature="n#!!block;n#insertNewUser#0" />
-            <element signature="n#!!block;n#isSuccessfulSignUp#0" />
-            <element signature="n#!!block;n#checkAvailableEmail#0" />
-            <element signature="n#!!block;n#isEmailAvailable#0" />
-            <element signature="n#!!block;n#retrieveUser#0" />
-            <element signature="n#!!block;n#isLoginValid#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBConnection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="98" column="27" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
+        <state relative-caret-position="260">
+          <caret line="110" column="126" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="126" />
           <folding>
             <element signature="n#getPropertiesNumberByUserId#0;n#DBConnection#0;n#!!top" />
             <element signature="n#validSignIn#0;n#DBConnection#0;n#!!top" />
             <element signature="n#checkIfMailAlreadyExists#0;n#DBConnection#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainSlide.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="138" selection-start-line="24" selection-start-column="138" selection-end-line="24" selection-end-column="138" />
         </state>
       </provider>
     </entry>
