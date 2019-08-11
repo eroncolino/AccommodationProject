@@ -1030,19 +1030,20 @@
     </column>
     <column id="256" parent="245" name="yearbuilt">
       <Position>10</Position>
-      <DataType>date|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="257" parent="245" name="dateinserted">
       <Position>11</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="245" name="dateupdated">
+    <column id="258" parent="245" name="updatedate">
       <Position>12</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="259" parent="245" name="price">

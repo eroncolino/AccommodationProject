@@ -18,6 +18,24 @@ function logOut() {
     }
 }
 
+function redirectToProfile(allowed) {
+    if (allowed) {
+        window.location.href = 'userpage.php';
+    }
+    else {
+        alert("You are not logged in. Please sign up or login to access your profile.");
+    }
+}
+
+//Function to delete a property
+function deleteProperty(propertyId) {
+    var r = confirm("Are you sure you want to permanently delete this announcement?");
+
+    if (r) {
+        window.location.href = 'propertyDeletion.php';
+    }
+}
+
 //Function to move the mail slide and show the log in panel
 function move() {
     let sidenav = document.getElementsByClassName("sidenav")[0];
@@ -149,7 +167,7 @@ function retrieveUser(valid) {
         window.location.href = 'userpage.php';
     } else {
         alert('User not found. Please check your credentials or sign up.');
-        window.location.href = "index.php";
+        window.location.href = "home.php";
     }
 }
 

@@ -8,9 +8,9 @@
 
 //session_start();
 $_SESSION['logged_in'] = false;
-session_unset();
-session_destroy();
+session_start();
 $_SESSION = array();
-header("Location: index.php");
+session_destroy();
+header("Location: home.php");
 ?>
 

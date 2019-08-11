@@ -112,6 +112,25 @@ class DBConnection
         }
     }
 
+    public static function deleteAnnouncement($propertyId) {
+        $instance = DBConnection::getInstance();
+        $conn = $instance->getConnection();
+
+        $stmt = $conn->prepare('DELETE FROM properties WHERE propertyId=?');
+        $stmt->bind_param("i", $propertyId);
+
+        $stmt->execute();
+        $result = $stmt->affected_rows;
+
+        if ($result) {
+            echo "<script type='text/javascript'>alert('Announcement deleted successfully.');</script>";
+
+        } else {
+            echo "<script type='text/javascript'>alert('Something went wrong. The announcement could not be deleted.');</script>";
+        }
+
+    }
+
     public static function getPropertiesNumberByUserId($userId)
     {
         $instance = DBConnection::getInstance();

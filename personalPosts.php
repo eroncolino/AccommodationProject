@@ -72,8 +72,9 @@ include_once('Property.php');
                                             echo "<td>" .  $property->getUpdateDate() . "</td>";
                                             echo "<td>" .  $property->getPrice() . "</td>";
                                             echo "<td> 
-                                                    <a href=\"#\"><i class=\"fa fa-pencil-square-o\"></i></a>
-                                                    <a href=\"#\"><i class=\"fa fa-trash\"></i></a>
+                                                    <a href=\"#\" title=\"Extend announcement expiration date\"><i class=\"fa fa-calendar\"></i></a>";
+                                                    echo "<a href=\"#\" title=\"Edit announcement\"><i class=\"fa fa-pencil-square-o\"></i></a>
+                                                    <a href=\"propertyDeletion.php?delete=true&propertyId="; echo $property->getPropertyId(); echo "\" title=\"Delete announcement\"><i class=\"fa fa-trash\"></i></a>
                                                   </td>";
                                             echo "</tr>";
                                         }

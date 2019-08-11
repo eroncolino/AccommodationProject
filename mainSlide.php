@@ -14,16 +14,10 @@
             <img class="logo" src="images/logo.png" alt="logo">
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li class="active"><a href="home.php">Home</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li><a
-                    <?php
-                        if($_SESSION['logged_in'] == true) {
-                            echo 'href="userpage.php"';
-                        }
-                        else {
-                            echo //todo;
-                        }?> >Profile</a></li>
+            <li><a onclick="redirectToProfile(<?php echo ($_SESSION['logged_in'] == true); ?>)" >Profile</a></li>
+
             <?php if($_SESSION['logged_in'] == true) {
                 echo '<li><a id="login-button" href="" onclick="logOut(); return false;">Logout</a></li>';
             } else {

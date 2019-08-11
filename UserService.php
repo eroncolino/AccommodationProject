@@ -6,10 +6,6 @@
  * Time: 11:01 PM
  */
 
-if(!isset($_SESSION))
-{
-    session_start();
-}
 
 class UserService
 {
