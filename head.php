@@ -27,6 +27,12 @@
 </head>
 
 <body>
+<?php
+    if (!isset($_SESSION['logged_in'])) {
+        echo "<script> alert('unset')</script>";
+        $_SESSION['logged_in'] = false;
+    }
 
+?>
 
 

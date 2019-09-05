@@ -6,8 +6,8 @@
  * Time: 8:10 PM
  */
 
-include('UserService.php');
-include('Property.php');
+include_once('UserService.php');
+include_once('Property.php');
 
 if (!isset($_SESSION)) {
     session_start();
@@ -85,7 +85,7 @@ class DBConnection
             while ($row = $result->fetch_array()) {
                 $property = new Property($row['propertyid'], $row['userid'], $row['title'], $row['address'],
                     $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
-                    $row['yearbuilt'], $row['dateinserted'], $row['updatedate'], $row['price']);
+                    $row['dateinserted'], $row['updatedate'], $row['price']);
 
                 $propertiesArray[] = $property;
             }
@@ -94,21 +94,40 @@ class DBConnection
         return $propertiesArray;
     }
 
-    public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $dateInserted, $updateDate, $price) {
+    public static function getPropertyById($propertyId) {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
-        $stmt = $conn->prepare('INSERT INTO properties (userid, title, address, description, bedrooms, bathrooms, parking, area, yearbuilt, dateinserted, updatedate, price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)');
-        $stmt->bind_param("isssiiiiissd", $userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $dateInserted, $updateDate, $price);
+        $stmt = $conn->prepare('SELECT * FROM properties WHERE propertyid = ?');
+        $stmt->bind_param('i', $propertyId);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $row = $result->fetch_array();
+
+        $property = new Property($row['propertyid'], $row['userid'], $row['title'], $row['address'],
+                    $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
+                    $row['dateinserted'], $row['updatedate'], $row['price']);
+
+        return $property;
+    }
+
+    public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $dateInserted, $updateDate, $price) {
+        $instance = DBConnection::getInstance();
+        $conn = $instance->getConnection();
+
+        $stmt = $conn->prepare('INSERT INTO properties (userid, title, address, description, bedrooms, bathrooms, parking, area, dateinserted, updatedate, price) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
+        $stmt->bind_param("isssiiiissd", $userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $dateInserted, $updateDate, $price);
 
         $stmt->execute();
         $result = $stmt->affected_rows;
 
         if ($result) {
-            echo "<script type='text/javascript'>alert('Announcement inserted successfully.');</script>";
+            echo "<script type=\"text/javascript\">alert(\"Announcement inserted successfully.\");</script>";
 
         } else {
-            echo "<script type='text/javascript'>alert('Something went wrong. The announcement could not be saved.');</script>";
+            echo "<script type=\"text/javascript\">alert(\"Something went wrong. The announcement could not be saved.\");</script>";
         }
     }
 
@@ -128,7 +147,6 @@ class DBConnection
         } else {
             echo "<script type='text/javascript'>alert('Something went wrong. The announcement could not be deleted.');</script>";
         }
-
     }
 
     public static function getPropertiesNumberByUserId($userId)
@@ -249,6 +267,11 @@ if (isset($_POST['functionToCall']) && !empty($_POST['functionToCall'])) {
             $email = $_POST['emailAddress'];
             $password = $_POST['passwordValue'];
             DBConnection::validSignIn($email, $password);
+            break;
+
+        case 'getPropertyArrayById':
+            $propertyId = $_POST['propertyId'];
+            DBConnection::getPropertyArrayById($propertyId);
             break;
 
         case 'other' : // do something;break;

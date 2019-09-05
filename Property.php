@@ -4,10 +4,10 @@
 class Property
 {
     private $_propertyId, $_userId, $_title, $_address, $_description, $_bedrooms, $_bathrooms, $_parking, $_area,
-        $_year, $_dateInserted, $_updateDate, $_price;
+        $_dateInserted, $_updateDate, $_price;
 
     public function __construct($propertyId, $userId, $title, $address, $description, $bedrooms, $bathrooms, $parking,
-                                $area, $year, $dateInserted, $updateDate, $price)
+                                $area, $dateInserted, $updateDate, $price)
     {
         $this->_propertyId = $propertyId;
         $this->_userId = $userId;
@@ -18,7 +18,6 @@ class Property
         $this->_bathrooms = $bathrooms;
         $this->_parking = $parking;
         $this->_area = $area;
-        $this->_year = $year;
         $this->_dateInserted = $dateInserted;
         $this->_updateDate = $updateDate;
         $this->_price = $price;
@@ -58,10 +57,6 @@ class Property
 
     public function getArea() {
         return $this->_area;
-    }
-
-    public function getBuildingYear() {
-        return $this->_year;
     }
 
     public function getDateInserted() {

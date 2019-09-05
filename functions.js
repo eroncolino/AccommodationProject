@@ -21,10 +21,25 @@ function logOut() {
 function redirectToProfile(allowed) {
     if (allowed) {
         window.location.href = 'userpage.php';
-    }
-    else {
+    } else {
         alert("You are not logged in. Please sign up or login to access your profile.");
     }
+}
+
+//Function to show pop up form to edit a property
+function editProperty(title) {
+    document.getElementById("announcementForm").style.display = "block";
+    document.forms['propertyForm']['title'].value = title;
+}
+
+function loadDescription(description) {
+    $("#descriptionBox").dialog();
+}
+
+
+//Function that extends the expiration date by 30 days
+function extendExpiration(propertyId) {
+    alert(propertyId);
 }
 
 //Function to delete a property
@@ -32,7 +47,7 @@ function deleteProperty(propertyId) {
     var r = confirm("Are you sure you want to permanently delete this announcement?");
 
     if (r) {
-        window.location.href = 'propertyDeletion.php';
+        window.location.href = 'propertyDeletion.php?delete=true&propertyId=' + propertyId;
     }
 }
 
@@ -160,6 +175,7 @@ function isEmailAvailable(checkAvailableEmail) {
 }
 
 /* Begin login check */
+
 //Function that waits for the asynchronous ajax valid login request
 function retrieveUser(valid) {
     if (valid) {
@@ -184,49 +200,50 @@ function isLoginValid(retrieveUser) {
         success: retrieveUser
     });
 }
+
 /* End login check */
 
 
-$(document).ready( function() {
+$(document).ready(function () {
 
     // Validating password script
     var pswd, confirmpswd;
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        $('#inputNewPassword').keyup(function() {
+        $('#inputNewPassword').keyup(function () {
             pswd = $(this).val();
 
             //validate the length
-            if ( pswd.length < 8 ) {
+            if (pswd.length < 8) {
                 $('#length').removeClass('valid').addClass('invalid');
             } else {
                 $('#length').removeClass('invalid').addClass('valid');
             }
 
             //validate letter
-            if ( pswd.match(/[A-z]/) ) {
+            if (pswd.match(/[A-z]/)) {
                 $('#letter').removeClass('invalid').addClass('valid');
             } else {
                 $('#letter').removeClass('valid').addClass('invalid');
             }
 
             //validate capital letter
-            if ( pswd.match(/[A-Z]/) ) {
+            if (pswd.match(/[A-Z]/)) {
                 $('#capital').removeClass('invalid').addClass('valid');
             } else {
                 $('#capital').removeClass('valid').addClass('invalid');
             }
 
             //validate number
-            if ( pswd.match(/\d/) ) {
+            if (pswd.match(/\d/)) {
                 $('#number').removeClass('invalid').addClass('valid');
             } else {
                 $('#number').removeClass('valid').addClass('invalid');
             }
 
             //validate space
-            if ( pswd.match(/[^a-zA-Z0-9\-\/]/) ) {
+            if (pswd.match(/[^a-zA-Z0-9\-\/]/)) {
                 $('#space').removeClass('invalid').addClass('valid');
             } else {
                 $('#space').removeClass('valid').addClass('invalid');
@@ -234,13 +251,13 @@ $(document).ready( function() {
 
             changeSignupButtonVisibility();
 
-        }).focus(function() {
+        }).focus(function () {
             $('#pswd_info').show();
-        }).blur(function() {
+        }).blur(function () {
             $('#pswd_info').hide();
         });
 
-        $('#confirmInputNewPassword').keyup(function() {
+        $('#confirmInputNewPassword').keyup(function () {
             confirmpswd = $(this).val();
 
             if (pswd.localeCompare(confirmpswd) !== 0) {
@@ -276,7 +293,10 @@ $(document).ready( function() {
 });
 
 //Shows 'Show' and 'Hide' buttons on passwords fields
-$(document).on('click','.pass_show .ptxt', function(){
+$(document).on('click', '.pass_show .ptxt', function () {
     $(this).text($(this).text() == "Show" ? "Hide" : "Show");
-    $(this).prev().attr('type', function(index, attr){return attr == 'password' ? 'text' : 'password'; });
+    $(this).prev().attr('type', function (index, attr) {
+        return attr == 'password' ? 'text' : 'password';
+    });
 });
+
