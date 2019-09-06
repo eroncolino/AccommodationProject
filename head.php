@@ -24,12 +24,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="functions.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
 </head>
 
 <body>
 <?php
     if (!isset($_SESSION['logged_in'])) {
-        echo "<script> alert('unset')</script>";
+        //echo "<script> alert('unset')</script>";
         $_SESSION['logged_in'] = false;
     }
 

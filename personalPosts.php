@@ -70,15 +70,7 @@ include_once('Property.php');
                                             echo "<td>" . $property->getPropertyId() . "</td>";
                                             echo "<td>" . $property->getTitle() . "</td>";
                                             echo "<td>" . $property->getAddress() . "</td>";
-                                            echo "<td>";
-                                            if (strlen($property->getDescription()) > 50) {
-                                                echo substr($property->getDescription(), 0, 50);
-                                                echo '...<a id="descriptionLoader">&nbsp;[Read more]</a>';
-                                                echo '...<a id="descriptionLoader">&nbsp;[Read more]</a>';
-                                            } else {
-                                                echo $property->getDescription();
-                                            }
-                                            echo "</td>";
+                                            echo "<td>" . $property->getDescription() . "</td>";
                                             echo "<td>" . $property->getBedrooms() . "</td>";
                                             echo "<td>" . $property->getBathrooms() . "</td>";
                                             echo "<td>"; if ($property->getParking() == 0) {echo "No";} else {echo "Yes";}; echo "</td>";

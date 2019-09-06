@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87758b13-b621-4a17-aa8d-58d091abf158" name="Default Changelist" comment="sistema descrizione">
-      <change afterPath="$PROJECT_DIR$/expirationExtension.php" afterDir="false" />
+    <list default="true" id="87758b13-b621-4a17-aa8d-58d091abf158" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainSlide.php" beforeDir="false" afterPath="$PROJECT_DIR$/mainSlide.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personalPosts.php" beforeDir="false" afterPath="$PROJECT_DIR$/personalPosts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/userpage.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +166,7 @@
       <workItem from="1565615366107" duration="1942000" />
       <workItem from="1567630581447" duration="5777000" />
       <workItem from="1567687947045" duration="13921000" />
-      <workItem from="1567777723270" duration="5688000" />
+      <workItem from="1567777723270" duration="11643000" />
     </task>
     <task id="LOCAL-00001" summary="login and submit working">
       <created>1550862140429</created>
@@ -245,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567720051344</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="da togliere modal">
+      <created>1567783635922</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1567783635922</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +283,8 @@
     <MESSAGE value="da fare: filtri, homepage, menu profile" />
     <MESSAGE value="alert delete not working" />
     <MESSAGE value="sistema descrizione" />
-    <option name="LAST_COMMIT_MESSAGE" value="sistema descrizione" />
+    <MESSAGE value="da togliere modal" />
+    <option name="LAST_COMMIT_MESSAGE" value="da togliere modal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -310,6 +318,26 @@
           <url>file://$PROJECT_DIR$/DBConnection.php</url>
           <line>122</line>
           <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/DBConnection.php</url>
+          <line>165</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/DBConnection.php</url>
+          <line>164</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/DBConnection.php</url>
+          <line>166</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/DBConnection.php</url>
+          <line>167</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

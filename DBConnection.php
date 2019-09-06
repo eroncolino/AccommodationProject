@@ -143,7 +143,6 @@ class DBConnection
 
         if ($result) {
             echo "<script type='text/javascript'>alert('Announcement deleted successfully.');</script>";
-
         } else {
             echo "<script type='text/javascript'>alert('Something went wrong. The announcement could not be deleted.');</script>";
         }
@@ -153,17 +152,20 @@ class DBConnection
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
-        $stmt = $conn->prepare('DELETE FROM properties WHERE propertyId=?');
-        $stmt->bind_param("i", $propertyId);
+        date_default_timezone_set('Europe/Rome');
+        $date = date('Y-m-d H:i:s', time());
+        $updateDate = date('Y-m-d H:i:s', strtotime("$date +30 days"));
+
+        $stmt = $conn->prepare('UPDATE properties SET updatedate=? WHERE propertyid=?');
+        $stmt->bind_param("si", $updateDate, $propertyId);
 
         $stmt->execute();
         $result = $stmt->affected_rows;
 
         if ($result) {
-            echo "<script type='text/javascript'>alert('Announcement deleted successfully.');</script>";
-
+            echo "<script type='text/javascript'>alert('Expiration date extended successfully.');</script>";
         } else {
-            echo "<script type='text/javascript'>alert('Something went wrong. The announcement could not be deleted.');</script>";
+            echo "<script type='text/javascript'>alert('Something went wrong. The expiration date could not be extended.');</script>";
         }
     }
 
