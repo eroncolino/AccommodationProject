@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
     $date = date('Y-m-d H:i:s', time());
     $updateDate = date('Y-m-d H:i:s', strtotime("$date +30 days"));
 
-    DBConnection::insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $year, $date, $updateDate, $price);
+    DBConnection::insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $date, $updateDate, $price);
     echo "<script type='text/javascript'>window.location.href = 'userpage.php';</script>";
 }
 ?>

@@ -32,14 +32,14 @@ function editProperty(title) {
     document.forms['propertyForm']['title'].value = title;
 }
 
-function loadDescription(description) {
-    $("#descriptionBox").dialog();
-}
-
 
 //Function that extends the expiration date by 30 days
 function extendExpiration(propertyId) {
-    alert(propertyId);
+    var r = confirm("You will extend the expiration by 30 days. Do you want to proceed?");
+
+    if (r) {
+        window.location.href = 'expirationExtension.php?extend=yes&propertyId=' + propertyId;
+    }
 }
 
 //Function to delete a property

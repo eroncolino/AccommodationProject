@@ -73,7 +73,8 @@ include_once('Property.php');
                                             echo "<td>";
                                             if (strlen($property->getDescription()) > 50) {
                                                 echo substr($property->getDescription(), 0, 50);
-                                                echo '...<a id="descriptionLoader"">&nbsp;[Read more]</a>';
+                                                echo '...<a id="descriptionLoader">&nbsp;[Read more]</a>';
+                                                echo '...<a id="descriptionLoader">&nbsp;[Read more]</a>';
                                             } else {
                                                 echo $property->getDescription();
                                             }
@@ -96,8 +97,9 @@ include_once('Property.php');
                                             echo "<!-- The Modal --> <div id=\"myModal\" class=\"modal\">";
                                             echo "<div class=\"modal-content\">";
                                             echo "<div class=\"modal-header\">";
-                                            echo "<span id=\"close-description-modal\" class=\"close-modal\">&times;</span>";
-                                            echo $property->getDescription();
+                                            echo "<div class='modal-title'><span>Description</span><span id=\"close-description-modal\" class=\"close-modal\">&times;</span></div>";
+                                            $description = $property->getDescription();
+                                            echo $description;
                                             echo "</div></div></div>";
                                         }
                                     ?>
