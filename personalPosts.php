@@ -124,7 +124,7 @@ include_once('Property.php');
                     <textarea id="form-property-description" class="form-control" rows="5" name="description" required></textarea>
                 </div>
 
-                <div class="facilities">
+                <div class="details">
                     <div>
                         <label for="bedrooms"><b><i class="fa fa-bed" style="font-size:30px;"></i></b></label>
                         <select id="form-property-bedrooms" name="bedrooms" required>
@@ -165,23 +165,16 @@ include_once('Property.php');
                         </select>
                     </div>
 
-                </div>
-
-                <div class="details">
                     <div>
                         <label for="area"><b>Area (in m^2)</b></label>
                         <input id="form-property-area" type="number" placeholder="Area" name="area" min="1" max="10000" required>
                     </div>
 
                     <div>
-                        <label for="year"><b>Property Building Year</b></label>
-                        <input id="form-property-year" type="number" pattert="[0-9]{4}" placeholder="Year" name="year" min="1600" max="2019"required>
-                    </div>
-
-                    <div>
                         <label for="price"><b>Price per month (in €)</b></label>
                         <input id="form-property-price" type="number" pattert="[0-9]{4}" placeholder="Price" name="price" min="100" required>
                     </div>
+
                 </div>
 
                 <div class="buttons-row">

@@ -64,7 +64,52 @@ class DBConnection
     public function getAllProperties()
     {
         $result = $this->_connection->query("SELECT * FROM properties ORDER BY dateinserted DESC");
-        return $result;
+
+        $allPropertiesArray = array();
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_array()) {
+                $property = new Property($row['propertyid'], $row['userid'], $row['title'], $row['address'],
+                    $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
+                    $row['dateinserted'], $row['updatedate'], $row['price']);
+
+                $allPropertiesArray[] = $property;
+            }
+        }
+
+        return $allPropertiesArray;
+    }
+
+    public function getNumberOfProperties()
+    {
+        $result = $this->_connection->query("SELECT COUNT(1) AS total FROM properties");
+        $count = $result->fetch_assoc();
+
+        return $count["total"];
+    }
+
+    public function getPropertiesWithOffset($offset, $limit) {
+        $stmt = $this->_connection->prepare("SELECT * FROM properties LIMIT ?, ?");
+        $stmt->bind_param("ii", $offset, $limit);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $propertiesArray = array();
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_array()) {
+                $property = new Property($row['propertyid'], $row['userid'], $row['title'], $row['address'],
+                    $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
+                    $row['dateinserted'], $row['updatedate'], $row['price']);
+
+                $propertiesArray[] = $property;
+            }
+        }
+
+        return $propertiesArray;
     }
 
     public static function getPropertiesByUserId($userId)
@@ -287,11 +332,6 @@ if (isset($_POST['functionToCall']) && !empty($_POST['functionToCall'])) {
             $email = $_POST['emailAddress'];
             $password = $_POST['passwordValue'];
             DBConnection::validSignIn($email, $password);
-            break;
-
-        case 'getPropertyArrayById':
-            $propertyId = $_POST['propertyId'];
-            DBConnection::getPropertyArrayById($propertyId);
             break;
 
         case 'other' : // do something;break;

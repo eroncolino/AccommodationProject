@@ -135,7 +135,7 @@ select {
     color: white;
     line-height: 55px;
     text-align: center;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
@@ -547,7 +547,11 @@ hr {
     border: 4px solid #1e83bc;
     z-index: 10;
     background-color: white;
-    width: 55%;
+    width: 50%;
+}
+
+#form-property-description {
+    width: 100%;
 }
 
 #announcementForm h1 {
@@ -560,9 +564,46 @@ hr {
     margin: 10px;
 }
 
-.facilities {
+.details {
     display: flex;
-    justify-content: start;
+    justify-content: space-around;
+}
+
+.details div:nth-child(1),
+.details div:nth-child(2),
+.details div:nth-child(3) {
+    display: flex;
+}
+
+.details div:nth-child(4),
+.details div:nth-child(5) {
+    margin-top: 15px !important;
+}
+
+.details div:nth-child(1) label,
+.details div:nth-child(2) label,
+.details div:nth-child(3) label {
+    margin: 0 10px;
+}
+
+.details div:nth-child(1) select,
+.details div:nth-child(2) select,
+.details div:nth-child(3) select {
+    margin: 5px 0;
+}
+
+.details div:nth-child(4) label,
+.details div:nth-child(5) label {
+    margin-right: 10px;
+}
+
+.details div:nth-child(5) input {
+    width: 30%;
+}
+
+#form-property-title,
+#form-property-address{
+    width: 79%;
 }
 
 .buttons-row {
@@ -575,12 +616,6 @@ hr {
     width: 15%;
     padding: 7px 15px;
 }
-
-.details {
-    display: flex;
-    justify-content: space-around;
-}
-
 label[for=title], label[for=address] {
     width: 20%;
 }
@@ -729,7 +764,31 @@ label[for=description] {
 #author a {
     color: #fff;
     text-decoration: none;
+}
 
+.properties-container {
+    margin: 0 100px;
+}
+
+.property-display-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.property-display-container .item {
+    flex-grow: 1;
+    flex-basis: 500px;
+    margin: 10px;
+    background-color: red;
+}
+
+.property-display-container .item:empty {
+    height: 0;
+}
+
+.pagination-row {
+    text-align: center;
+    margin: 50px 0;
 }
 
 /* Add Animation */
