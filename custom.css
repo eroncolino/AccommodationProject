@@ -29,6 +29,11 @@ body {
     right: 0;
 }
 
+.sidenav-header i {
+    color: white;
+    font-size: 25px;
+}
+
 .sidenav-header {
     width: 100%;
     padding: 25px 0;
@@ -380,10 +385,10 @@ hr {
     width: 25px;
 }
 
-.main-houses h3 {
+.main-houses h3.title {
     text-align: center;
-    margin-top: 4rem;
-    font-size: 30px;
+    margin: 5rem 0 3rem;
+    font-size: 40px;
     color: #0079be;
 }
 
@@ -767,7 +772,7 @@ label[for=description] {
 }
 
 .properties-container {
-    margin: 0 100px;
+    margin: 0 15%;
 }
 
 .property-display-container {
@@ -775,20 +780,120 @@ label[for=description] {
     flex-wrap: wrap;
 }
 
+.property-display-container {
+    color: #0079be;
+}
+
 .property-display-container .item {
     flex-grow: 1;
-    flex-basis: 500px;
-    margin: 10px;
-    background-color: red;
+    flex-basis: 350px;
+    margin: 20px;
+    border: solid 2px #0079be;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.property-display-container .item .image {
+    height: 220px;
+    position: relative;
+}
+
+.property-display-container .item .price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #f32e4e;
+    color: white;
+}
+
+.property-display-container .item img {
+    width: 100%;
+    height: 100%;
+}
+
+.property-display-container .item .title {
+    padding: 0 20px;
+}
+
+.property-display-container .item .title h3 {
+    margin-top: 10px;
+}
+
+.property-display-container .item .address {
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.property-display-container .item .details {
+    margin-bottom: 10px;
+}
+
+.property-display-container .item .address i {
+    margin-right: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.property-display-container .item .bedrooms i,
+.property-display-container .item .bathrooms i,
+.property-display-container .item .parking i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.property-display-container .item .area{
+    margin-top: 15px !important ;
+    padding: 0 20px;
+}
+
+.property-display-container .item .details {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+}
+
+.property-display-container .item .details .bedrooms,
+.property-display-container .item .details .bathrooms,
+.property-display-container .item .details .parking {
+    margin-right: 40px;
 }
 
 .property-display-container .item:empty {
     height: 0;
+    border: none;
+}
+
+.details-container {
+    margin-bottom: 35px;
+}
+
+.more-info {
+    position: relative;
+}
+
+.more-info button {
+    position: absolute;
+    right: 30px;
+    bottom: -20px;
 }
 
 .pagination-row {
     text-align: center;
     margin: 50px 0;
+}
+
+.pagination>li>a:hover {
+    cursor: pointer;
+}
+
+.footer-contatti {
+    position: absolute !important;
+}
+
+.modal {
+    z-index: 1500;
 }
 
 /* Add Animation */

@@ -9,7 +9,38 @@
 
 <div class="main-houses">
 
-    <h3>Properties</h3>
+    <!-- Modal -->
+    <div class = "modal fade" id = "myModal" tabindex = "-1" role = "dialog" aria-hidden = "true">
+
+        <div class = "modal-dialog">
+            <div class = "modal-content">
+
+                <div class = "modal-header">
+                    <h4 class = "modal-title">
+                        Customer Detail
+                    </h4>
+
+                    <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
+                        ×
+                    </button>
+                </div>
+
+                <div id = "modal-body">
+                    Press ESC button to exit.
+                </div>
+
+                <div class = "modal-footer">
+                    <button type = "button" class = "btn btn-default" data-dismiss = "modal">
+                        OK
+                    </button>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+
+    </div><!-- /.modal -->
+
+    <h3 class="title">Properties</h3>
 
     <div class="properties-container">
 
@@ -38,7 +69,31 @@
         echo '<div class="property-display-container">';
 
         foreach ($selected_properties as $property) {
-            echo '<div class="item">' . $property->getPropertyId() . '</div>';
+            echo '<div class="item">';
+            echo '<div class="image"><img src="images/no-image-icon-23500.jpg">';
+            echo '<div class="price">Price: €' . $property->getPrice() . '</div>';
+            echo '</div>';
+            echo '<div class="details-container">';
+            echo '<div class="title"><h3>' . $property->getTitle() . '</h3></div>';
+            echo '<div class="address"><i class="fa fa-map-marker-alt""></i>' . $property->getAddress() . '</div>';
+            echo '<div class="details">';
+            echo '<div class="bedrooms"><i class="fa fa-bed""></i>' . $property->getBedrooms() . '</div>';
+            echo '<div class="bathrooms"><i class="fa fa-bath""></i>' . $property->getBathrooms() . '</div>';
+            echo '<div class="parking"><i class="fa fa-car""></i>';
+                if ($property->getParking() == 0) {
+                    echo "Yes";
+                } else {
+                    echo "No";
+                }
+                echo '</div>';
+
+
+            echo '</div>';
+            echo '<div class="area">Area (m^2): ' . $property->getArea() . '</div>';
+            echo '<div class="more-info"><button class="btn btn-primary" onclick="loadData(this.getAttribute(\'property-id\'));" property-id="';
+            echo  $property->getPropertyId() . '">More info</button></div>';
+            echo '</div>';
+            echo '</div>';
         }
 
         //Create empty elements as placeholder for displaying properties correctly
@@ -147,3 +202,4 @@
 
     </div>
 </div>
+

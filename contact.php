@@ -11,6 +11,7 @@ require_once ('sidenav.php');
 require_once('mainSlide.php');
 ?>
 
+<div>
     <div class="row" id="contatti">
         <div class="container mt-5" >
 
@@ -38,6 +39,11 @@ require_once('mainSlide.php');
             </div>
         </div>
     </div>
+    <div class="footer footer-contatti">
+        © 2019 Copyright: Elena Roncolino
+    </div>
+</div>
+
 
 <script>
     $(document).ready(function () {
@@ -47,7 +53,3 @@ require_once('mainSlide.php');
 
 
 </script>
-
-<?php
-require_once('footer.php');
-?>

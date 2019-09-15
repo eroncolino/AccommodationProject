@@ -17,6 +17,22 @@ if (!isset($_SESSION['logged_in'])) {
     $_SESSION['logged_in'] = false;
 }
 
+// Check if user has requested to get detail for the homepage
+if (isset($_POST["get_data"])) {
+
+    // Get the ID of selected property
+    $id = $_POST["id"];
+
+    $property_object = DBConnection::getPropertyDataById($id);
+
+    // Important to echo the record in JSON format
+    echo json_encode($property_object);
+
+    // Important to stop further executing the script on AJAX by following line
+    exit();
+
+}
+
 class DBConnection
 {
     //Hold the connection instance
@@ -139,6 +155,7 @@ class DBConnection
         return $propertiesArray;
     }
 
+    // Returns a property object
     public static function getPropertyById($propertyId) {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
@@ -156,6 +173,21 @@ class DBConnection
                     $row['dateinserted'], $row['updatedate'], $row['price']);
 
         return $property;
+    }
+
+    public static function getPropertyDataById($propertyId) {
+        $instance = DBConnection::getInstance();
+        $conn = $instance->getConnection();
+
+        $stmt = $conn->prepare('SELECT * FROM properties WHERE propertyid = ?');
+        $stmt->bind_param('i', $propertyId);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $row = $result->fetch_object();
+
+        return $row;
     }
 
     public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $dateInserted, $updateDate, $price) {

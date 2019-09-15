@@ -11,7 +11,7 @@
     <div class="sidenav-container">
         <header class="sidenav-header">
             <a href="" class="hide-button" onclick="move(); return false;">
-                <img alt="Close icon" src="https://img.icons8.com/ultraviolet/32/000000/delete-sign.png"">
+                <i class="fa fa-times" aria-hidden="true"></i>
             </a>
         </header>
 

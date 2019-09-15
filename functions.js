@@ -26,12 +26,40 @@ function redirectToProfile(allowed) {
     }
 }
 
+// Function to load data of a selected property in homepage
+function loadData(id) {
+    $.ajax({
+        url: "DBConnection.php",
+        method: "POST",
+        data: {get_data: 1, id: id},
+        success: function (response) {
+            console.log(response);
+            response = JSON.parse(response);
+            console.log(response);
+
+            var html = ""; // todo
+
+            // Displaying city
+            html += "<div class='row'>";
+            html += "<div class='col-md-6'>City</div>";
+            html += "<div class='col-md-6'>" + response.title + "</div>";
+            html += "</div>";
+
+            // And now assign this HTML layout in pop-up body
+            $("#modal-body").html(html);
+
+            // And finally you can this function to show the pop-up/dialog
+            $("#myModal").modal();
+        }
+    });
+
+}
+
 //Function to show pop up form to edit a property
 function editProperty(title) {
     document.getElementById("announcementForm").style.display = "block";
     document.forms['propertyForm']['title'].value = title;
 }
-
 
 //Function that extends the expiration date by 30 days
 function extendExpiration(propertyId) {
