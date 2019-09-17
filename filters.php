@@ -9,8 +9,8 @@
 ?>
 
 <div class="filters">
-    <form id="filters-form" action="" method="POST">
-    </form>
+    <form id="filters-form" action="resultsfilter.php" method="POST">
+
 
     <div class="filters-parameter">
         <div class="city-filter">
@@ -28,7 +28,7 @@
         <div class="price-filter">
             <div class="price">
                 Price
-                <select class="form-control" name="city" form="filters-form">
+                <select class="form-control" name="price-range" form="filters-form">
                     <option value="any">Any</option>
                     <option value="low">0€-500€</option>
                     <option value="medium">501€-1000€</option>
@@ -40,7 +40,7 @@
         <div class="type-filter">
             <div class="type">
                 Type
-                <select class="form-control" name="city" form="filters-form">
+                <select class="form-control" name="house-type" form="filters-form">
                     <option value="any">Any</option>
                     <option value="monolocale">Studio apartment</option>
                     <option value="bilocale">Two-bedroom apartment</option>
@@ -52,7 +52,9 @@
 
 
     <div class="search-filter">
-        <button class="search-button" type="submit"><i class="material-icons search-icon">search</i><span>Search</span></button>
+        <button class="search-button" type="submit" name="submit-search"><i class="material-icons search-icon">search</i><span>Search</span></button>
     </div>
+
+    </form>
 </div>
 

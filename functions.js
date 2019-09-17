@@ -37,12 +37,46 @@ function loadData(id) {
             response = JSON.parse(response);
             console.log(response);
 
-            var html = ""; // todo
+            var html = "";
 
-            // Displaying city
+            // Displaying details
             html += "<div class='row'>";
-            html += "<div class='col-md-6'>City</div>";
-            html += "<div class='col-md-6'>" + response.title + "</div>";
+            html += "<div class='col-md-2'>Property ID:</div>";
+            html += "<div class='col-md-10'>" + response.propertyid + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Title:</div>";
+            html += "<div class='col-md-10'>" + response.title + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Address:</div>";
+            html += "<div class='col-md-10'>" + response.address + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Description:</div>";
+            html += "<div class='col-md-10'>" + response.description + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-1'><i class='fa fa-bed'></i></div>";
+            html += "<div class='col-md-2'>" + response.bedrooms + "</div>";
+            html += "<div class='col-md-1'><i class='fa fa-bath'></i></div>";
+            html += "<div class='col-md-2'>" + response.bathrooms + "</div>";
+            html += "<div class='col-md-1'><i class='fa fa-car'></i></div>";
+            html += "<div class='col-md-2'>" + response.parking + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Area</div>";
+            html += "<div class='col-md-10'>" + response.area + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Price</div>";
+            html += "<div class='col-md-10'>" + response.price + "</div>";
             html += "</div>";
 
             // And now assign this HTML layout in pop-up body

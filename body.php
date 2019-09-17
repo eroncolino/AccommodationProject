@@ -17,12 +17,8 @@
 
                 <div class = "modal-header">
                     <h4 class = "modal-title">
-                        Customer Detail
+                        Property Detail
                     </h4>
-
-                    <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
-                        ×
-                    </button>
                 </div>
 
                 <div id = "modal-body">
