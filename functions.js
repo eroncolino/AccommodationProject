@@ -26,16 +26,29 @@ function redirectToProfile(allowed) {
     }
 }
 
-// Function to load data of a selected property in homepage
+// Function to load data of a selected property in homepage in the modal
+
+function setFilterSearch() {
+    let city = $('select[name="city"] option:selected').val();
+    let price = $('select[name="price-range"] option:selected').val();
+    let type = $('select[name="house-type"] option:selected').val();
+
+    $.ajax({
+        url: "body.php",
+        method: "POST",
+        data: {submit_search: 1, selected_city: city, selected_price: price, selected_type: type},
+        success: function () {
+        }
+    });
+}
+
 function loadData(id) {
     $.ajax({
         url: "DBConnection.php",
         method: "POST",
         data: {get_data: 1, id: id},
         success: function (response) {
-            console.log(response);
             response = JSON.parse(response);
-            console.log(response);
 
             var html = "";
 

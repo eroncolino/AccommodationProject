@@ -6,6 +6,8 @@
  * Time: 8:10 PM
  */
 
+use function Sodium\library_version_minor;
+
 include_once('UserService.php');
 include_once('Property.php');
 
@@ -17,7 +19,7 @@ if (!isset($_SESSION['logged_in'])) {
     $_SESSION['logged_in'] = false;
 }
 
-// Check if user has requested to get detail for the homepage
+// Check if user has requested to get detail for the homepage in the modal
 if (isset($_POST["get_data"])) {
 
     // Get the ID of selected property
@@ -32,6 +34,7 @@ if (isset($_POST["get_data"])) {
     exit();
 
 }
+
 
 class DBConnection
 {
@@ -66,7 +69,113 @@ class DBConnection
         return self::$_instance;
     }
 
-    //Method clone is empty to prevent duplication of connection
+    // Retrieves total number of properties that correspond to the selected parameters
+    public function getNumberOfPropertiesWithParameters($selected_city, $price_range, $house_type) {
+        $query = "SELECT COUNT(1) AS total FROM properties WHERE ";
+
+        if ($selected_city != "any") {
+            $query = $query . "address LIKE '%" . $selected_city . "%'";
+        }
+        if ($price_range != "any") {
+            if ($selected_city != "any") {
+                $query = $query . " AND ";
+            }
+            switch ($price_range) {
+                case "low":
+                    $query = $query . " price <= 500 ";
+                    break;
+                case "medium":
+                    $query = $query . " price > 500  AND price <= 1000 ";
+                    break;
+                case "high":
+                    $query = $query . " price > 1000 ";
+                    break;
+            }
+        }
+        if ($house_type != "any") {
+            if ($selected_city != "any" || $price_range != "any") {
+                $query = $query . " AND ";
+            }
+            switch ($house_type) {
+                case "1":
+                    $query = $query . " bedrooms = 1";
+                    break;
+                case "2":
+                    $query = $query . " bedrooms = 2";
+                    break;
+                case "multiple":
+                    $query = $query . " bedrooms > 2 ";
+                    break;
+            }
+        }
+
+        $result = $this->_connection->query($query);
+        $count = $result->fetch_assoc();
+
+        return $count["total"];
+
+    }
+
+    public function getPropertiesWithOffsetAndParameters($selected_city, $price_range, $house_type, $offset, $limit) {
+        $query = "SELECT * FROM properties WHERE ";
+
+        if ($selected_city != "any") {
+            $query = $query . "address LIKE '%" . $selected_city . "%'";
+        }
+        if ($price_range != "any") {
+            if ($selected_city != "any") {
+                $query = $query . " AND ";
+            }
+            switch ($price_range) {
+                case "low":
+                    $query = $query . " price <= 500 ";
+                    break;
+                case "medium":
+                    $query = $query . " price > 500  AND price <= 1000 ";
+                    break;
+                case "high":
+                    $query = $query . " price > 1000 ";
+                    break;
+            }
+        }
+        if ($house_type != "any") {
+            if ($selected_city != "any" || $price_range != "any") {
+                $query = $query . " AND ";
+            }
+            switch ($house_type) {
+                case "1":
+                    $query = $query . " bedrooms = 1";
+                    break;
+                case "2":
+                    $query = $query . " bedrooms = 2";
+                    break;
+                case "multiple":
+                    $query = $query . " bedrooms > 2 ";
+                    break;
+            }
+        }
+
+        $query = $query . " LIMIT " . $offset . ", " . $limit . "";
+
+        $result = $this->_connection->query($query);
+
+        $propertiesArray = array();
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_array()) {
+                $property = new Property($row['propertyid'], $row['userid'], $row['title'], $row['address'],
+                    $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
+                    $row['dateinserted'], $row['updatedate'], $row['price']);
+
+                $propertiesArray[] = $property;
+            }
+        }
+
+        return $propertiesArray;
+    }
+
+    // Method clone is empty to prevent duplication of connection
     private function __clone()
     {
     }
@@ -105,7 +214,8 @@ class DBConnection
         return $count["total"];
     }
 
-    public function getPropertiesWithOffset($offset, $limit) {
+    public function getPropertiesWithOffset($offset, $limit)
+    {
         $stmt = $this->_connection->prepare("SELECT * FROM properties LIMIT ?, ?");
         $stmt->bind_param("ii", $offset, $limit);
 
@@ -156,7 +266,8 @@ class DBConnection
     }
 
     // Returns a property object
-    public static function getPropertyById($propertyId) {
+    public static function getPropertyById($propertyId)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
@@ -169,13 +280,14 @@ class DBConnection
         $row = $result->fetch_array();
 
         $property = new Property($row['propertyid'], $row['userid'], $row['title'], $row['address'],
-                    $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
-                    $row['dateinserted'], $row['updatedate'], $row['price']);
+            $row['description'], $row['bedrooms'], $row['bathrooms'], $row['parking'], $row['area'],
+            $row['dateinserted'], $row['updatedate'], $row['price']);
 
         return $property;
     }
 
-    public static function getPropertyDataById($propertyId) {
+    public static function getPropertyDataById($propertyId)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
@@ -190,7 +302,8 @@ class DBConnection
         return $row;
     }
 
-    public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $dateInserted, $updateDate, $price) {
+    public static function insertAnnouncement($userId, $title, $address, $description, $bedrooms, $bathrooms, $parking, $area, $dateInserted, $updateDate, $price)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
@@ -208,7 +321,8 @@ class DBConnection
         }
     }
 
-    public static function deleteAnnouncement($propertyId) {
+    public static function deleteAnnouncement($propertyId)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
@@ -225,7 +339,8 @@ class DBConnection
         }
     }
 
-    public static function extendExpiration($propertyId) {
+    public static function extendExpiration($propertyId)
+    {
         $instance = DBConnection::getInstance();
         $conn = $instance->getConnection();
 
