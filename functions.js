@@ -26,23 +26,70 @@ function redirectToProfile(allowed) {
     }
 }
 
-// Function to load data of a selected property in homepage
+// Function to load data of a selected property in homepage in the modal
+
+function setFilterSearch() {
+    let city = $('select[name="city"] option:selected').val();
+    let price = $('select[name="price-range"] option:selected').val();
+    let type = $('select[name="house-type"] option:selected').val();
+
+    $.ajax({
+        url: "body.php",
+        method: "POST",
+        data: {submit_search: 1, selected_city: city, selected_price: price, selected_type: type},
+        success: function () {
+        }
+    });
+}
+
 function loadData(id) {
     $.ajax({
         url: "DBConnection.php",
         method: "POST",
         data: {get_data: 1, id: id},
         success: function (response) {
-            console.log(response);
             response = JSON.parse(response);
-            console.log(response);
 
-            var html = ""; // todo
+            var html = "";
 
-            // Displaying city
+            // Displaying details
             html += "<div class='row'>";
-            html += "<div class='col-md-6'>City</div>";
-            html += "<div class='col-md-6'>" + response.title + "</div>";
+            html += "<div class='col-md-2'>Property ID:</div>";
+            html += "<div class='col-md-10'>" + response.propertyid + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Title:</div>";
+            html += "<div class='col-md-10'>" + response.title + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Address:</div>";
+            html += "<div class='col-md-10'>" + response.address + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Description:</div>";
+            html += "<div class='col-md-10'>" + response.description + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-1'><i class='fa fa-bed'></i></div>";
+            html += "<div class='col-md-2'>" + response.bedrooms + "</div>";
+            html += "<div class='col-md-1'><i class='fa fa-bath'></i></div>";
+            html += "<div class='col-md-2'>" + response.bathrooms + "</div>";
+            html += "<div class='col-md-1'><i class='fa fa-car'></i></div>";
+            html += "<div class='col-md-2'>" + response.parking + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Area</div>";
+            html += "<div class='col-md-10'>" + response.area + "</div>";
+            html += "</div>";
+
+            html += "<div class='row'>";
+            html += "<div class='col-md-2'>Price</div>";
+            html += "<div class='col-md-10'>" + response.price + "</div>";
             html += "</div>";
 
             // And now assign this HTML layout in pop-up body

@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87758b13-b621-4a17-aa8d-58d091abf158" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/no-image-icon-23500.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Accommodation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Accommodation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/DBConnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/body.php" beforeDir="false" afterPath="$PROJECT_DIR$/body.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sidenav.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidenav.php" afterDir="false" />
-    </list>
+    <list default="true" id="87758b13-b621-4a17-aa8d-58d091abf158" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +44,11 @@
     <select />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
@@ -64,7 +57,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" notify_if_session_was_finished_without_being_paused="false" />
+  <component name="PhpDebugGeneral" notify_if_session_was_finished_without_being_paused="false" />
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="0aa9af3e-7217-442f-8bce-2f25015d55d0" name="Apache on XAMPP" />
@@ -178,7 +171,10 @@
       <workItem from="1567938364381" duration="18930000" />
       <workItem from="1568027472692" duration="9049000" />
       <workItem from="1568290997219" duration="1887000" />
-      <workItem from="1568466553193" duration="6439000" />
+      <workItem from="1568466553193" duration="6511000" />
+      <workItem from="1568644098138" duration="15493000" />
+      <workItem from="1568749731944" duration="887000" />
+      <workItem from="1568801610826" duration="5745000" />
     </task>
     <task id="LOCAL-00001" summary="login and submit working">
       <created>1550862140429</created>
@@ -278,7 +274,28 @@
       <option name="project" value="LOCAL" />
       <updated>1567976215104</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="modal working">
+      <created>1568570478550</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1568570478550</updated>
+    </task>
+    <task id="LOCAL-00016" summary="modifiche a body.php e a dbconnection.php per implementare filtri">
+      <created>1568717274732</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1568717274732</updated>
+    </task>
+    <task id="LOCAL-00017" summary="filters not working">
+      <created>1568814288573</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1568814288573</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +329,10 @@
     <MESSAGE value="da togliere modal" />
     <MESSAGE value="pagina contatti da sistemare" />
     <MESSAGE value="pagination working" />
-    <option name="LAST_COMMIT_MESSAGE" value="pagination working" />
+    <MESSAGE value="modal working" />
+    <MESSAGE value="modifiche a body.php e a dbconnection.php per implementare filtri" />
+    <MESSAGE value="filters not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="filters not working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -334,13 +354,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/DBConnection.php</url>
-          <line>28</line>
-          <option name="timeStamp" value="60" />
+          <line>170</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/DBConnection.php</url>
-          <line>25</line>
-          <option name="timeStamp" value="61" />
+          <line>163</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/DBConnection.php</url>
+          <line>165</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/DBConnection.php</url>
+          <line>174</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

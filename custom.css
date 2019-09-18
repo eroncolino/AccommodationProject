@@ -81,7 +81,7 @@ body {
     margin-top: -100px;
 }
 
-.filters {
+#filters-form {
     display: flex;
     justify-content: center;
 }
@@ -107,6 +107,7 @@ body {
 
 .search-filter {
     margin-top: -43px;
+    z-index: 10;
 }
 
 .search-filter button {
@@ -894,6 +895,27 @@ label[for=description] {
 
 .modal {
     z-index: 1500;
+    width: 45%;
+}
+
+#modal-body {
+    padding: 20px;
+}
+
+#modal-body .row  {
+    padding: 10px;
+}
+
+#modal-body .row .fa {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.modal-title {
+    margin: 0 0 0 10px;
+    font-weight: 600;
+    font-size: 25px;
+    color: #0079be;
 }
 
 /* Add Animation */
@@ -952,6 +974,12 @@ label[for=description] {
 @media (max-width: 1300px) {
     .create-advert {
         width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 100%;
     }
 }
 

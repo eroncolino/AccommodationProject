@@ -17,12 +17,8 @@
 
                 <div class = "modal-header">
                     <h4 class = "modal-title">
-                        Customer Detail
+                        Property Detail
                     </h4>
-
-                    <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
-                        ×
-                    </button>
                 </div>
 
                 <div id = "modal-body">
@@ -60,11 +56,21 @@
         $next_page = $page_no + 1;
         $adjacents = "2";
 
-        $total_no_of_properties = DBConnection::getInstance()->getNumberOfProperties();
+        //Filters are applied and total number of properties to be shown depends on the the filters
+        if (isset($_POST['submit_search']) && ($_POST['selected_city'] != "any" || $_POST['selected_price'] != "any" || $_POST['selected_type'] != "any")) {
+                $selected_city = $_POST['selected_city'];
+                $price_range = $_POST['selected_price'];
+                $house_type = $_POST['selected_type'];
+
+                $total_no_of_properties = DBConnection::getInstance()->getNumberOfPropertiesWithParameters($selected_city, $price_range, $house_type);
+                $selected_properties = DBConnection::getInstance()->getPropertiesWithOffsetAndParameters($selected_city, $price_range, $house_type, $offset, $properties_per_page);
+        } else {    // Else retrieve the total number of properties without filters
+            $total_no_of_properties = DBConnection::getInstance()->getNumberOfProperties();
+            $selected_properties = DBConnection::getInstance()->getPropertiesWithOffset($offset, $properties_per_page);
+        }
+
         $total_no_of_pages = ceil($total_no_of_properties / $properties_per_page);
         $second_last = $total_no_of_pages - 1;
-
-        $selected_properties = DBConnection::getInstance()->getPropertiesWithOffset($offset, $properties_per_page);
 
         echo '<div class="property-display-container">';
 
@@ -86,7 +92,6 @@
                     echo "No";
                 }
                 echo '</div>';
-
 
             echo '</div>';
             echo '<div class="area">Area (m^2): ' . $property->getArea() . '</div>';
